@@ -9,41 +9,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <title>Quản lý học sinh THPT</title>
 </head>
-
-<body class="bg-dark">
+<body>
     <div class="container-fluid">
-        <div class="row bg-warning">
-            <div class="col-md-6" style="height: 64px">
-                <img alt="" src="./images/logo/liva_amstheme_logo.png" class="h-100">
-                <label for="">Trường THPT Chuyên Hà Nội-ARMSTERDAM</label>
+        <div class="row bg-warning" >
+            <div class="col-md-6 d-flex" style="height: 64px">
+                
+                <h5 class="align-self-md-center" >Quản lý học sinh</h5>
             </div>
             <div class="col-md-6 ">
-                <nav class="navbar navbar-expand-lg navbar-light float-end " style="height: 64px">
+                <nav class="navbar navbar-expand-lg navbar-light float-end z-1 " style="height: 48px">
                     <div class="me-4">
-                        <a href="#" class="text-decoration-none text-white"><i class="fas fa-user"></i>Tên giáo viên</a>
+                        <a href="#" class="text-decoration-none text-white"><i class="fas fa-user"></i> Tên giáo viên</a>
                     </div>
-
-                    <div class="collapse navbar-collapse me-4" id="bs-example-navbar-collapse-1">
-                        <ul class="navbar-nav">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            
+                            
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Học kỳ
+                                Học kỳ
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="#">2021-2022</a></li>
                                     <li><a class="dropdown-item" href="#">2022-2023</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
                                     <li><a class="dropdown-item" href="#">2023-2024</a></li>
                                 </ul>
                             </li>
-                        </ul>
-
-                        <ul class="navbar-nav ml-md-auto">
-                            <!-- <li class="nav-item active">
-                                <a class="nav-link" href="#">Thêm</a>
-                            </li> -->
                             <li class="nav-item active">
                                 <a class="nav-link" href="#">Đổi mật khẩu </a>
                             </li>
@@ -51,11 +45,11 @@
                                 <a class="nav-link" href="#">Thoát</a>
                             </li>
                         </ul>
+                        
                     </div>
                 </nav>
             </div>
         </div>
-        <div class="row bg-success">
-            
+        
         </div>
     </div>
