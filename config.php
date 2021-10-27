@@ -1,6 +1,6 @@
 <?php
     $conn = mysqli_connect('localhost','root','','qlhs');
-    if($conn){
+    if(!$conn){
         die('error connect');
     }
 ?>
