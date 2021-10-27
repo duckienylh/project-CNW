@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <title>Quản lý học sinh THPT</title>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row bg-warning" >
@@ -21,6 +22,7 @@
                     <div class="me-4">
                         <a href="#" class="text-decoration-none text-white"><i class="fas fa-user"></i> Tên giáo viên</a>
                     </div>
+
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -47,9 +49,13 @@
                         </ul>
                         
                     </div>
+
+
+
                 </nav>
             </div>
         </div>
         
+
         </div>
     </div>
