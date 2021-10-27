@@ -11,7 +11,7 @@ include 'headerad.php';
                 <div class="col-md-6">
 
                     <a href="" class="btn btn-md btn-outline-light btn-primary float-end">
-                        <i class="fas fa-user-plus"></i> Add New Class
+                        <i class="fas fa-user-plus"></i> Add New Subject
                     </a>
                 </div>
             </div>
@@ -21,9 +21,9 @@ include 'headerad.php';
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Class ID</th>
-                        <th scope="col">Class Name</th>
-                        <th scope="col">Form Teacher</th>
+                        <th scope="col">Subject ID</th>
+                        <th scope="col">Subject Name</th>
+                        <th scope="col">Teacher</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>

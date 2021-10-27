@@ -1,5 +1,5 @@
 <?php
-    include '../reuse/header.php'
+    include 'headerad.php'
 ?>
 <main>
     <div class=" bg-info ">
@@ -12,6 +12,7 @@
                     <div class="mt-3 mb-3" style="font-size: 1.875rem"><i class="fas fa-user-graduate"></i></div>
                     <div class="ps-3 mt-3 mb-3">
                         <p>Total Students</p>
+        
                     </div>
                 </div>
                 <div class="col-md-2 col-12 bg-white d-flex mb-2  rounded">
@@ -32,5 +33,5 @@
     </div>
 </main>
 <?php
-    include '../reuse/footer.php';
+    include 'footerad.php';
 ?>
