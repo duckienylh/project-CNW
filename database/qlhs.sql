@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 25, 2021 lúc 10:13 AM
+-- Thời gian đã tạo: Th10 27, 2021 lúc 06:28 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -29,7 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `class` (
   `class_id` int(10) NOT NULL,
-  `class_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `class_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `teacher_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -40,8 +41,12 @@ CREATE TABLE `class` (
 
 CREATE TABLE `mark` (
   `st_id` int(10) NOT NULL,
-  `sb-id` int(10) NOT NULL,
-  `Mark_sb` double NOT NULL
+  `sb_id` int(10) NOT NULL,
+  `ma_term` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_hour test` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_final exam` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_medium score` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_classification` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -82,9 +87,9 @@ CREATE TABLE `teacher` (
   `teach_eamail` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `teach_phone` tinytext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `teach_position` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `teach_subj` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `teach_degree` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `teach_birth` date DEFAULT NULL
+  `teach_birth` date DEFAULT NULL,
+  `sb_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -110,14 +115,15 @@ CREATE TABLE `user` (
 -- Chỉ mục cho bảng `class`
 --
 ALTER TABLE `class`
-  ADD PRIMARY KEY (`class_id`);
+  ADD PRIMARY KEY (`class_id`),
+  ADD KEY `teach_key` (`teacher_id`);
 
 --
 -- Chỉ mục cho bảng `mark`
 --
 ALTER TABLE `mark`
-  ADD KEY `foreign key` (`st_id`),
-  ADD KEY `foreign key2` (`sb-id`);
+  ADD KEY `st_key` (`st_id`),
+  ADD KEY `sb2_key` (`sb_id`);
 
 --
 -- Chỉ mục cho bảng `student`
@@ -135,46 +141,31 @@ ALTER TABLE `subject`
 -- Chỉ mục cho bảng `teacher`
 --
 ALTER TABLE `teacher`
-  ADD PRIMARY KEY (`teach_id`);
-
---
--- Chỉ mục cho bảng `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`),
-  ADD KEY `teach_key` (`teacher_id`),
-  ADD KEY `st_key` (`st_id`);
+  ADD PRIMARY KEY (`teach_id`),
+  ADD KEY `sb_key` (`sb_id`);
 
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
 
 --
+-- Các ràng buộc cho bảng `class`
+--
+ALTER TABLE `class`
+  ADD CONSTRAINT `teach_key` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`teach_id`);
+
+--
 -- Các ràng buộc cho bảng `mark`
 --
 ALTER TABLE `mark`
-  ADD CONSTRAINT `foreign key` FOREIGN KEY (`st_id`) REFERENCES `student` (`st_id`),
-  ADD CONSTRAINT `foreign key2` FOREIGN KEY (`sb-id`) REFERENCES `subject` (`sb_id`);
-
---
--- Các ràng buộc cho bảng `student`
---
-ALTER TABLE `student`
-  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`st_id`) REFERENCES `class` (`class_id`);
+  ADD CONSTRAINT `sb2_key` FOREIGN KEY (`sb_id`) REFERENCES `subject` (`sb_id`),
+  ADD CONSTRAINT `st_key` FOREIGN KEY (`st_id`) REFERENCES `student` (`st_id`);
 
 --
 -- Các ràng buộc cho bảng `teacher`
 --
 ALTER TABLE `teacher`
-  ADD CONSTRAINT `tea_ibfk_1` FOREIGN KEY (`teach_id`) REFERENCES `class` (`class_id`),
-  ADD CONSTRAINT `teacher_ibfk_1` FOREIGN KEY (`teach_id`) REFERENCES `class` (`class_id`);
-
---
--- Các ràng buộc cho bảng `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `st_key` FOREIGN KEY (`st_id`) REFERENCES `student` (`st_id`),
-  ADD CONSTRAINT `teach_key` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`teach_id`);
+  ADD CONSTRAINT `sb_key` FOREIGN KEY (`sb_id`) REFERENCES `subject` (`sb_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
