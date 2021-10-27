@@ -40,13 +40,12 @@
                                     <div class="card-body p-5">
                                         <h2 class="text-uppercase text-center mb-5">account login</h2>
                                         <form>
-
                                             <div class="form-outline mb-4">
-                                                <input type="text" class="form-control form-control-lg" name="txtname">
+                                                <input type="text" id="userName" class="form-control form-control-lg" name="txtname">
                                                 <label class="form-label">user name</label>
                                             </div>
                                             <div class="form-outline mb-4">
-                                                <input type="text"  class="form-control form-control-lg" name="txtpass">
+                                                <input type="password" id="password" class="form-control form-control-lg" name="txtpass">
                                                 <label class="form-label">password</label>
                                             </div>
                                             <div class="d-flex justify-content-center">
@@ -63,31 +62,12 @@
         </form>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
+    <script src="./assets/js/process-index.js"></script>
 
 </body>
 <!-- process login -->
 <?php
-session_start();
-if (isset($_POST['btnlogin'])) {
-    $username = $_POST['txtname'];
-    $password = $_POST['txtpass'];
-
-    $conn = mysqli_connect('localhost', 'root', '', 'danhba_dt');
-    if (!$conn) {
-        die("khong ket noi dc");
-    }
-
-    $sql = "SELECT *FROM db_users WHERE user_name = '$username' and user_pass = '$password'";
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        $_SESSION['loginOK'] = $username;
-        header("location:./reuse/header.php");
-    } else {
-        header("location:./index.php");
-    }
-}
+    include './process-index.php';
 ?>
 
 </html>
