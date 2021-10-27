@@ -6,12 +6,12 @@ include 'headerad.php';
         <div class="container ">
             <div class="row mt-3 pt-3">
                 <div class="col-md-6">
-                    <h2>Class</h2>
+                    <h2>Teacher</h2>
                 </div>
                 <div class="col-md-6">
 
                     <a href="" class="btn btn-md btn-outline-light btn-primary float-end">
-                        <i class="fas fa-user-plus"></i> Add New Class
+                        <i class="fas fa-user-plus"></i> Add New Teacher
                     </a>
                 </div>
             </div>
@@ -28,9 +28,14 @@ include 'headerad.php';
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Class ID</th>
-                        <th scope="col">Class Name</th>
-                        <th scope="col">Form Teacher</th>
+                        <th scope="col">Teacher ID</th>
+                        <th scope="col">Teacher Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Position</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Degree</th>
+                        <th scope="col">Date of Birth</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -38,6 +43,11 @@ include 'headerad.php';
                     <tr>
                         <th scope="row">1</th>
                         <td>Mark</td>
+                        <td>Otto</td>
+                        <td>Otto</td>
+                        <td>Otto</td>
+                        <td>Otto</td>
+                        <td>Otto</td>
                         <td>Otto</td>
                         <td>
                             <a class="btn btn-warning" href=""><i class="fas fa-user-edit"></i></a>

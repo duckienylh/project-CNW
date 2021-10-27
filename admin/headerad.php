@@ -26,10 +26,10 @@
                         <a class="nav-link active" href="subject.php">Subject</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="Student.php">Student</a>
+                        <a class="nav-link active" href="teacher.php">Teacher</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="Result.php">Result</a>
+                        <a class="nav-link active" href="result.php">Result</a>
                     </li>
                     <li class="nav-item dropdown ">
                         <a class="nav-link  dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

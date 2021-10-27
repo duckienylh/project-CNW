@@ -15,6 +15,13 @@ include 'headerad.php';
                     </a>
                 </div>
             </div>
+            <div class="row ">
+                <div class="d-flex justify-content-end ">
+                <label for="searchclass" class="d-flex">Search:
+                        <input type="search" class="form-control form-control-sm ms-2" placeholder="" aria-controls="list"> 
+                    </label>
+                </div>
+            </div>
 
         </div>
         <div class="container-fluid py-3">
