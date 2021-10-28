@@ -5,25 +5,25 @@
                     <!-- </a> -->
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                         <li>
-                            <a href="dashboard.php" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fas fa-chart-line"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+                            <a href="dashboard.php" class="nav-link px-0 align-middle">
+                                <i class="fas fa-chart-line"></i> <span class="ms-1 d-none d-sm-inline text-info">Dashboard</span> </a>
 
                         </li>
                         <li>
                             <a href="class.php" class="nav-link px-0 align-middle">
-                                <i class="fas fa-school"></i> <span class="ms-1 d-none d-sm-inline">Class</span></a>
+                                <i class="fas fa-school"></i> <span class="ms-1 d-none d-sm-inline text-info">Class</span></a>
                         </li>
                         <li>
-                            <a href="subject.php" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                                <i class="fas fa-book-reader"></i> <span class="ms-1 d-none d-sm-inline">Subject</span></a>
+                            <a href="subject.php" class="nav-link px-0 align-middle ">
+                                <i class="fas fa-book-reader"></i> <span class="ms-1 d-none d-sm-inline text-info">Subject</span></a>
                         </li>
                         <li>
-                            <a href="teacher.php" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fas fa-graduation-cap"></i> <span class="ms-1 d-none d-sm-inline">Teacher</span> </a>
+                            <a href="teacher.php" class="nav-link px-0 align-middle">
+                                <i class="fas fa-graduation-cap"></i> <span class="ms-1 d-none d-sm-inline text-info">Teacher</span> </a>
                         </li>
                         <li>
                             <a href="result.php" class="nav-link px-0 align-middle">
-                                <i class="fas fa-marker"></i> <span class="ms-1 d-none d-sm-inline">Result</span> </a>
+                                <i class="fas fa-marker"></i> <span class="ms-1 d-none d-sm-inline text-info">Result</span> </a>
                         </li>
                     </ul>
                     <hr>
