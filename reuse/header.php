@@ -12,7 +12,7 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row bg-warning" >
+        <div class="row bg-info" >
             <div class="col-md-6 d-flex" style="height: 64px">
                 
                 <h5 class="align-self-md-center" >Quản lý học sinh</h5>
