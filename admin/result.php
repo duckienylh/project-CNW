@@ -2,7 +2,8 @@
 include 'headerad.php';
 ?>
 <main>
-<div class="row flex-nowrap">
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
             <?php
             include 'sidebaradmin.php';
             ?>
@@ -16,7 +17,7 @@ include 'headerad.php';
                     <div class="row">
                         <div class="float-end py-2">
                             <a href="" class="btn btn-md btn-outline-light btn-primary float-end">
-                                <i class="fas fa-user-plus"></i> Add New 
+                                <i class="fas fa-user-plus"></i> Add New
                             </a>
                         </div>
                     </div>
@@ -31,7 +32,7 @@ include 'headerad.php';
                 </div>
                 <div class="container-fluid py-3">
                     <table class="table table-hover">
-                    <thead>
+                        <thead>
                             <tr>
                                 <th scope="col">Student ID</th>
                                 <th scope="col">Student Name</th>
