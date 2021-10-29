@@ -13,18 +13,18 @@
 
 <body id="body-pd">
     <header class="header" id="header">
-        <div class="header_toggle"> <i class="fas fa-bars" id="header-toggle"></i> </div>
+        <div class="header_toggle "> <i class="fas fa-bars " style="color: #e35d6a;" id="header-toggle"></i> </div>
     </header>
-    <div class="l-navbar" id="nav-bar">
+    <div class="l-navbar" id="nav-bar" style="background-color: #e35d6a;">
         <nav class="nav">
             <div>
-                <span class=" nav_logo nav_logo-name">Menu</span>
+                <span class=" nav_logo nav_logo-name"></span>
                 <div class="nav_list">
-                    <a href="dashboard.php" class="nav_link "> <i class="fas fa-chart-line nav_icon"></i> <span class="nav_name">Dashboard</span> </a>
-                    <a href="class.php" class="nav_link"> <i class="fas fa-school nav_icon"></i> <span class="nav_name">Class</span> </a>
-                    <a href="subject.php" class="nav_link"> <i class="fas fa-book-reader nav_icon"></i> <span class="nav_name">Subject</span> </a>
-                    <a href="teacher.php" class="nav_link"> <i class="fas fa-graduation-cap nav_icon"></i> <span class="nav_name">Teacher</span> </a>
-                    <a href="result.php" class="nav_link"> <i class="fas fa-marker nav_icon"></i> <span class="nav_name">Result</span> </a>
+                    <a href="dashboard.php" class="nav_link  "> <i class="fas fa-chart-line nav_icon"></i> <span class="nav_name">Dashboard</span> </a>
+                    <a href="class.php" class="nav_link "> <i class="fas fa-school nav_icon"></i> <span class="nav_name">Lớp Học</span> </a>
+                    <a href="subject.php" class="nav_link "> <i class="fas fa-book-reader nav_icon"></i> <span class="nav_name">Môn Học</span> </a>
+                    <a href="teacher.php" class="nav_link "> <i class="fas fa-graduation-cap nav_icon"></i> <span class="nav_name">Giáo Viên</span> </a>
+                    <a href="result.php" class="nav_link "> <i class="fas fa-marker nav_icon"></i> <span class="nav_name">Kết Quả Điểm</span> </a>
                 </div>
             </div>
             <!-- <a href="#" class="nav_link"> <span class="nav_name">SignOut</span> </a> -->
