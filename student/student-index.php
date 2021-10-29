@@ -1,5 +1,5 @@
 <?php
-include './sidebar.php';
+include './sidebarst.php';
 ?>
 
 
@@ -16,7 +16,7 @@ include './sidebar.php';
 
             <table class="table table-ronsponsive table-bordered">
                 <thead>
-                    <tr class="table-success">
+                    <tr class="table-secondary ">
                     <th scope="col">Student ID</th>
                     <th scope="col">Student Name</th>
                     <th scope="col">Student Gender</th>
