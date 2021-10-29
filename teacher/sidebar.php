@@ -24,7 +24,7 @@
                     <a href="#" class="nav_link"> <i class="fas fa-users text-dark"></i> <span class="nav_name">kì học</span> </a>
                     <a href="./list-student.php" class="nav_link"> <i class="fas fa-users text-dark"></i> <span class="nav_name">lớp học</span> </a>
                     <a href="./mark.php" class="nav_link"> <i class="fas fa-keyboard text-dark"></i> <span class="nav_name">nhập điểm</span> </a>
-                    <a href="#" class="nav_link"> <i class="fas fa-user-graduate text-dark"></i> <span class="nav_name">contact</span> </a>
+                    <a href="#" class="nav_link"> <i class="fas fa-user-graduate text-dark"></i> <span class="nav_name">liên hệ</span> </a>
                 </div>
             </div>
             <!-- <a href="#" class="nav_link"> <span class="nav_name">SignOut</span> </a> -->
@@ -35,12 +35,12 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-light text-small shadow">
 
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    
+                    <li><a class="dropdown-item" href="#">Thông tin</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    <li><a class="dropdown-item" href="#">Thoát</a></li>
                 </ul>
             </div>
         </nav>
