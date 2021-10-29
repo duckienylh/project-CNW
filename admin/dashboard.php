@@ -2,8 +2,8 @@
 include 'headerad.php'
 ?>
 <main>
-    <div class="height-100 bg-info">
-        <div class="col py-3 bg-info ">
+    <div class="height-100 bg-light">
+        <div class="col py-3 " style="background-color: #f1aeb5;">
             <div class="container">
                 <div class="row mt-3 pt-3 border-bottom border-light">
                     <h2>Home</h2>
