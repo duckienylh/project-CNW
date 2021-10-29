@@ -49,7 +49,7 @@ include './sidebar.php';
 
         <div class="col-md-12" style="width:100% ; overflow: auto; height: auto">
 
-            <table class="table table-bordered">
+            <table class="table table-ronsponsive table-bordered">
                 <thead>
                     <tr class="table-success">
                     <th scope="col">Student ID</th>
