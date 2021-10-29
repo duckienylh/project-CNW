@@ -34,11 +34,11 @@
                     <span class="d-none d-sm-inline mx-1">Chương Đức</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-light shadow">
-                    <li><a class="dropdown-item nav_link" href="#"> <span class="nav_name">Manage Account </span></a></li>
+                    <li><a class="dropdown-item nav_link" href="#"> <span class="nav_name">Thông Tin Tài Khoản</span></a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item nav_link" href="../index.php"><span class="nav_name">Sign Out</span></a></li>
+                    <li><a class="dropdown-item nav_link" href="../index.php"><span class="nav_name">Thoát</span></a></li>
                 </ul>
             </div>
         </nav>
