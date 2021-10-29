@@ -30,7 +30,7 @@ include 'headerad.php';
                     </div>
 
                 </div>
-                <div class="container-fluid py-3">
+                <div class="container-fluid py-3" style="width:100% ; overflow: auto; height: auto">
                     <table class="table table-hover">
                         <thead>
                             <tr>
