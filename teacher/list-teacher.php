@@ -8,7 +8,7 @@ include './sidebar.php';
 
             <table class="table table-bordered">
                 <thead>
-                    <tr class="table-success">
+                    <tr style="background-color: #e685b5;">
                         <th scope="col">STT</th>
                         <th scope="col">Mã giáo viên</th>
                         <th scope="col">Họ và Tên</th>
