@@ -12,35 +12,3 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row ">
-            <div>
-                <ul class="nav justify-content-center border-bottom border-2 border-dark">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="dashboard.php">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="class.php">Class</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="subject.php">Subject</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="teacher.php">Teacher</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="result.php">Result</a>
-                    </li>
-                    <li class="nav-item dropdown ">
-                        <a class="nav-link  dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            User
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Manage Account</a></li>
-                            <li><a class="dropdown-item" href="../index.php">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
