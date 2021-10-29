@@ -30,7 +30,7 @@
 
 <body>
     <main>
-        <form method="post">
+        <form action="process-index.php" method="post">
             <section class="vh-100 bg-image" style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/search-box/img4.jpg');">
                 <div class="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div class="container h-100">
