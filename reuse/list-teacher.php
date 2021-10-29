@@ -3,12 +3,7 @@ include './sidebar.php';
 ?>
 
 <!-- body -->
-<div class="col py-3">
-    <main class="container-fluid" style="min-width: 759px;">
-        
-
-        
-
+<div class="col py-3"> 
         <div class="col-md-12" style="width:100% ; overflow: auto; height: auto">
 
             <table class="table table-bordered">

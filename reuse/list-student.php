@@ -4,7 +4,7 @@ include './sidebar.php';
 
 <!-- body -->
 <div class="col py-3">
-    <main class="container-fluid" style="min-width: 759px;">
+    
         <div class="d-flex justify-content-between bg-light ">
             <p><i class="fas fa-users"></i> lớp học</p>
         </div>
@@ -48,7 +48,7 @@ include './sidebar.php';
                 </tbody>
             </table>
         </div>
-    </main>
+    
 </div>
 <?php
 include './footer.php';
