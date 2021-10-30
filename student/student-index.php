@@ -17,11 +17,14 @@ include './sidebarst.php';
                 <table class="table table-primary table-hover table-bordered">
                     <thead class=" text while">
                         <tr  >
-                            <th scope="col">Student ID</th>
-                            <th scope="col">Student Name</th>
-                            <th scope="col">Student Gender</th>
-                            <th scope="col">Student Birth</th>
-                            <th scope="col">Student Address</th>
+                            <th scope="col">Mã học sinh</th>
+                            <th scope="col">Tên học sinh</th>
+                            <th scope="col">Ngày sinh</th>
+                            <th scope="col">Địa chỉ</th>
+                            <th scope="col">Giới tính</th>
+                            <th scope="col">Số điện thoại</th>
+                            <th scope="col">Tên phụ huynh</th>
+                            <th scope="col">Mã lớp</th>
                         </tr>
                     </thead>
                     <tbody>
