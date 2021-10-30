@@ -32,7 +32,7 @@ include './sidebarst.php';
 
                             //? lưu kết quả trả về $result
                             $result = mysqli_query($conn, $sql);
-                            $gender;
+                           
 
                             //* B3: Phân tích sử lý kết quả
                             if (mysqli_num_rows($result) > 0) {
