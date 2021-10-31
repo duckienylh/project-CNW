@@ -49,7 +49,7 @@ include './sidebarst.php';
                                     echo '<td>' . $row['st_gender'] . '</td>';
                                     echo '<td>' . $row['st_phone'] . '</td>';
                                     echo '<td>' . $row['st_parent'] . '</td>';
-                                    // echo '<td>' . $row['ma_avarage'] . '</td>';
+                                    echo '<td>' . $row['class_id'] . '</td>';
                                     echo '</tr>';
                                 }
                             }
