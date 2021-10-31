@@ -41,16 +41,16 @@ include './sidebarst.php';
                             //* B3: Phân tích sử lý kết quả
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
-                                    // echo "<tr>";
-                                    // echo '<td>' . $row['st_id'] . '</td>';
-                                    // echo '<td>' . $row['sb_id'] . '</td>';
+                                    echo "<tr>";
+                                    echo '<td>' . $row['st_id'] . '</td>';
+                                    echo '<td>' . $row['st_name'] . '</td>';
+                                    echo '<td>' . $row['st_birth'] . '</td>';
+                                    echo '<td>' . $row['st_address'] . '</td>';
+                                    echo '<td>' . $row['st_gender'] . '</td>';
                                     // echo '<td>' . $row['ma_hour_test'] . '</td>';
                                     // echo '<td>' . $row['ma_final_exam'] . '</td>';
                                     // echo '<td>' . $row['ma_avarage'] . '</td>';
-                                    // echo '<td>' . $row['ma_hour_test'] . '</td>';
-                                    // echo '<td>' . $row['ma_final_exam'] . '</td>';
-                                    // echo '<td>' . $row['ma_avarage'] . '</td>';
-                                    // echo '</tr>';
+                                    echo '</tr>';
                                 }
                             }
                             //* B4: đóng kết nối
