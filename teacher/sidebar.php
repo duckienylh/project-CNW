@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['loginOK'])) {
+        header("location:../index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,18 +18,17 @@
 </head>
 <body id="body-pd">
     <header class="header" id="header">
-        <div class="header_toggle"> <i class="fas fa-bars text" style="color: #e685b5;" id="header-toggle"></i> </div>
+        <div class="header_toggle"> <i class="fas fa-bars text" style="color: #9ec5fe;" id="header-toggle"></i> </div>
     </header>
-    <div class="l-navbar" style="background-color: #e685b5;" id="nav-bar">
+    <div class="l-navbar" style="background-color: #9ec5fe;" id="nav-bar">
         <nav class="nav">
             <div>
                 <span class=" nav_logo nav_logo-name"></span>
                 <div class="nav_list">
-                    <a href="./list-teacher.php" class="nav_link "> <i class="fas fa-school text-dark"></i> <span class="nav_name">Home</span> </a>
-                    <a href="#" class="nav_link"> <i class="fas fa-users text-dark"></i> <span class="nav_name">kì học</span> </a>
-                    <a href="./list-student.php" class="nav_link"> <i class="fas fa-users text-dark"></i> <span class="nav_name">lớp học</span> </a>
-                    <a href="./mark.php" class="nav_link"> <i class="fas fa-keyboard text-dark"></i> <span class="nav_name">nhập điểm</span> </a>
-                    <a href="#" class="nav_link"> <i class="fas fa-user-graduate text-dark"></i> <span class="nav_name">liên hệ</span> </a>
+                    <a href="./list-teacher.php" class="nav_link "> <i class="fas fa-school "></i> <span class="nav_name">Home</span> </a>
+                    <a href="./list-student.php" class="nav_link"> <i class="fas fa-users "></i> <span class="nav_name">lớp học</span> </a>
+                    <a href="./mark.php" class="nav_link"> <i class="fas fa-keyboard "></i> <span class="nav_name">nhập điểm</span> </a>
+                    <a href="#" class="nav_link"> <i class="fas fa-user-graduate "></i> <span class="nav_name">liên hệ</span> </a>
                 </div>
             </div>
             <!-- <a href="#" class="nav_link"> <span class="nav_name">SignOut</span> </a> -->
@@ -38,7 +43,7 @@
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Thoát</a></li>
+                    <li><a class="dropdown-item" href="../logout.php">Thoát</a></li>
                 </ul>
             </div>
         </nav>

@@ -19,10 +19,13 @@ if (isset($_POST['btnlogin'])) { //phải bấm đăng nhập thì mới vào đ
             // $_SESSION['current_user'] = $userName;
             if ($level == 0) { //Kiểm tra user level
                 echo "admin";  //admin
+                $_SESSION['loginOK'] = $userName;
             } else if ($level == 1) {
                 echo "teacher"; //teacher
+                $_SESSION['loginOK'] = $userName;
             } else {
                 echo "student";
+                $_SESSION['loginOK'] = $userName;
             }
         } else {
             echo "wrong"; //sai password

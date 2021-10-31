@@ -32,7 +32,7 @@ include './sidebar.php';
 
         <table class="table table-bordered table-striped">
             <thead>
-                <tr style="background-color: #e685b5;">
+                <tr style="background-color: #9ec5fe;">
                     <!-- <th scope="col">STT</th> -->
                     <th scope="col">Mã học sinh</th>
                     <th scope="col">Họ và Tên</th>
@@ -46,7 +46,7 @@ include './sidebar.php';
             </thead>
             <tbody>
                 <?php
-
+                
                 include "../config.php";
                 $sql = "SELECT * FROM students st,subjects s,marks m
                         WHERE st.st_id = m.st_id and s.sb_id = m.sb_id";
@@ -62,11 +62,15 @@ include './sidebar.php';
                             <td><?php echo $row['ma_mini_test']; ?></td>
                             <td><?php echo $row['ma_hour_test']; ?></td>
                             <td><?php echo $row['ma_final_exam']; ?></td>
-                            <td><?php echo $row['ma_avarage']; ?></td>
+                            <?php
+                                $mini = $row['ma_mini_test'];
+                                $hour = $row['ma_hour_test'];
+                                $final = $row['ma_final_exam'];
+                                $avg = ($mini+$hour*2+$final*3)/7;
+                            ?>
+                            <td><?php echo round($avg,2); ?></td>
 
-                            <!-- <td><a href="editEmployee.php?id=<?php //echo $row['emp_id']; 
-                                                                    ?>"><i class="fas fa-user-edit"></i></a></td> -->
-
+                            
                         </tr>
                 <?php
                     }

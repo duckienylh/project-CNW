@@ -33,7 +33,7 @@ include "../config.php";
 
         <table class="table table-bordered">
             <thead>
-                <tr style="background-color: #0a58ca;">
+                <tr style="background-color: #9ec5fe;">
                     <!-- <th scope="col">STT</th> -->
                     <th scope="col">Mã học sinh</th>
                     <th scope="col">Họ và Tên</th>
