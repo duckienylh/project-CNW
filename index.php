@@ -41,15 +41,15 @@
                                         <h2 class="text-uppercase text-center mb-5">account login</h2>
                                         <form>
                                             <div class="form-outline mb-4">
-                                                <input type="text" id="userName" class="form-control form-control-lg" name="txtname">
+                                                <input type="text" id="userName" class="form-control form-control-lg" name="userName">
                                                 <label class="form-label">user name</label>
                                             </div>
                                             <div class="form-outline mb-4">
-                                                <input type="password" id="password" class="form-control form-control-lg" name="txtpass">
+                                                <input type="password" id="password" class="form-control form-control-lg" name="password">
                                                 <label class="form-label">password</label>
                                             </div>
                                             <div class="d-flex justify-content-center">
-                                                <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" name="btnlogin">login</button>
+                                                <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body btn-login" name="btnlogin">login</button>
                                             </div>
                                         </form>
                                     </div>
@@ -61,13 +61,50 @@
             </section>
         </form>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="./assets/js/process-index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- <script src="./assets/js/process-index.js"></script> -->
 
 </body>
 <!-- process login -->
-<?php
-    include './process-index.php';
-?>
+<script>
+        $(document).ready(function() {
+            $('.btn-login').click(function() {
+                $userName = $('#userName').val();
+                $password = $('#password').val();
+
+                if ($userName == '' || $password == '') {
+                    alert("Vui lòng nhập đầy đủ TK và MK");
+                } else {
+                    $.ajax({
+                        url: "process-index.php",
+                        method: "POST",
+                        data: {
+                            btnlogin: "btnlogin",
+                            userName: $userName,
+                            password: $password
+                        },
+                        success: function(response) {
+                            if (response == "admin") {
+                                window.location.href = "admin/dashboard.php";
+                            } else if (response == "teacher") {
+                                window.location.href = "teacher/list-teacher.php";
+                            } else if (response == "student") {
+                                window.location.href = "student/student-index.php";
+                            } else if (response == "wrong") {
+                                alert("Mật khẩu không chính xác !");
+                            } else {
+                                alert("Tài khoản không tồn tại")
+                            }
+                        }
+                    });
+
+
+                }
+
+            });
+        })
+    </script>
 
 </html>
