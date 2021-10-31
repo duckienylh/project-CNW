@@ -1,23 +1,33 @@
 <?php
 session_start();
-if (isset($_POST['btnlogin'])) {
-    $username = $_POST['txtname'];
-    $password = $_POST['txtpass'];
+if (isset($_POST['btnlogin'])) { //phải bấm đăng nhập thì mới vào được trang này
+    $userName = $_POST['userName'];
+    $password = $_POST['password'];
 
-    $conn = mysqli_connect('localhost', 'root', '', 'danhba_dt');
-    if (!$conn) {
-        die("khong ket noi dc");
-    }
-
-    $sql = "SELECT *FROM db_users WHERE user_name = '$username' and user_pass = '$password'";
+    include 'config.php';
+    $sql = "SELECT * FROM users WHERE user_name = '$userName'";
     $result = mysqli_query($conn, $sql);
 
+    //Xác thực
     if (mysqli_num_rows($result) > 0) {
-        $_SESSION['loginOK'] = $username;
-        header("location:./reuse/header.php");
-    } 
-    // else {
-    //     header("location:./index.php");
-    // }
-}
-?>
+        $row = mysqli_fetch_assoc($result);
+        // $pass_hash = $row['user_pass'];
+        $level = $row['user_level'];
+        // if (password_verify($password, $pass_hash))
+        if ($password == $row['user_password']) {
+            //cấp session
+            // $_SESSION['current_user'] = $userName;
+            if ($level == 0) { //Kiểm tra user level
+                echo "admin";  //admin
+            } else if ($level == 1) {
+                echo "teacher"; //teacher
+            } else {
+                echo "student";
+            }
+        } else {
+            echo "wrong"; //sai password
+        }
+    } else {
+        echo "fail"; //sai username
+    }
+} else header('location:index.php'); //chuyển về trang đăng nhập
