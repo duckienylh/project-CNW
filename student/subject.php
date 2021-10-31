@@ -13,19 +13,38 @@ include './sidebarst.php';
         <div class="col-md-12" style="width:100% ; overflow: auto; height: auto ;">
 
             <table class="table table-primary table-hover table-bordered">
-                <thead class=" text while">
+                <thead >
                     <tr>
                         <th scope="col">Mã môn học</th>
                         <th scope="col">Tên môn học</th>
+                       
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
+                     <!--xuất dữ liệu theo CSDL -->
+                     <?php
+                           // * B1: mở kết nối
+                            include '../config.php';
+                            //* B2: Truy vấn
+                            $sql = "SELECT * FROM `subjects`";
 
-                    </tr>
+                            //? lưu kết quả trả về $result
+                            $result = mysqli_query($conn, $sql);
+                           
+
+                            //* B3: Phân tích sử lý kết quả
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<tr>";
+                                    echo '<td>' . $row['sb_id'] . '</td>';
+                                    echo '<td>' . $row['sb_name'] . '</td>';
+                                    echo '</tr>';
+                                }
+                            }
+                            //* B4: đóng kết nối
+                            mysqli_close($conn);
+                            ?>
+                    
                 </tbody>
             </table>
         </div>
