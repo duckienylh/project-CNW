@@ -47,7 +47,7 @@ include './sidebarst.php';
                                     echo '<td>' . $row['st_birth'] . '</td>';
                                     echo '<td>' . $row['st_address'] . '</td>';
                                     echo '<td>' . $row['st_gender'] . '</td>';
-                                    // echo '<td>' . $row['ma_hour_test'] . '</td>';
+                                    echo '<td>' . $row['st_phone'] . '</td>';
                                     // echo '<td>' . $row['ma_final_exam'] . '</td>';
                                     // echo '<td>' . $row['ma_avarage'] . '</td>';
                                     echo '</tr>';
