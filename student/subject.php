@@ -15,9 +15,8 @@ include './sidebarst.php';
             <table class="table table-primary table-hover table-bordered">
                 <thead class=" text while">
                     <tr>
-                        <th scope="col">Subject ID</th>
-                        <th scope="col">Subject Name</th>
-                        <th scope="col">Teacher</th>
+                        <th scope="col">Mã môn học</th>
+                        <th scope="col">Tên môn học</th>
                     </tr>
                 </thead>
                 <tbody>
