@@ -36,18 +36,21 @@ include './sidebarst.php';
 
                             //? lưu kết quả trả về $result
                             $result = mysqli_query($conn, $sql);
-                            $gender;
+                            
 
                             //* B3: Phân tích sử lý kết quả
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
-                                    echo "<tr>";
-                                    echo '<td>' . $row['st_id'] . '</td>';
-                                    echo '<td>' . $row['sb_id'] . '</td>';
-                                    echo '<td>' . $row['ma_hour_test'] . '</td>';
-                                    echo '<td>' . $row['ma_final_exam'] . '</td>';
-                                    echo '<td>' . $row['ma_avarage'] . '</td>';
-                                    echo '</tr>';
+                                    // echo "<tr>";
+                                    // echo '<td>' . $row['st_id'] . '</td>';
+                                    // echo '<td>' . $row['sb_id'] . '</td>';
+                                    // echo '<td>' . $row['ma_hour_test'] . '</td>';
+                                    // echo '<td>' . $row['ma_final_exam'] . '</td>';
+                                    // echo '<td>' . $row['ma_avarage'] . '</td>';
+                                    // echo '<td>' . $row['ma_hour_test'] . '</td>';
+                                    // echo '<td>' . $row['ma_final_exam'] . '</td>';
+                                    // echo '<td>' . $row['ma_avarage'] . '</td>';
+                                    // echo '</tr>';
                                 }
                             }
                             //* B4: đóng kết nối
