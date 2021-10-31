@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>Quản Lý Học Sinh</title>
 </head>
-
 <body id="body-pd">
     <header class="header" id="header">
         <div class="header_toggle"> <i class="fas fa-bars text" style="color: #e685b5;" id="header-toggle"></i> </div>
@@ -34,7 +33,6 @@
                     <span class="d-none d-sm-inline mx-1 text-dark"> Đức Kiên</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-light text-small shadow">
-
                     
                     <li><a class="dropdown-item" href="#">Thông tin</a></li>
                     <li>
