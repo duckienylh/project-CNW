@@ -21,7 +21,7 @@ include 'headerad.php';
                         </a>
                     </div>
                 </div>
-                <table class="table table-hover display" id="example">
+                <table class="table table-hover table-striped table-bordered" id="example">
                     <thead>
                         <tr>
                             <th scope="col">Mã Môn Học</th>
@@ -62,11 +62,7 @@ include 'headerad.php';
 </main>
 <script>
     $(document).ready(function() {
-        $('#example').DataTable({
-            search: {
-                return: true
-            }
-        });
+        $('#example').DataTable();
     });
 </script>
 <?php

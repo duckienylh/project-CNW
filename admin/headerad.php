@@ -23,11 +23,26 @@
             <div>
                 <span class=" nav_logo nav_logo-name"></span>
                 <div class="nav_list">
-                    <a href="dashboard.php" class="nav_link  "> <i class="fas fa-chart-line nav_icon"></i> <span class="nav_name">Home</span> </a>
-                    <a href="class.php" class="nav_link "> <i class="fas fa-school nav_icon"></i> <span class="nav_name">Lớp Học</span> </a>
-                    <a href="subject.php" class="nav_link "> <i class="fas fa-book-reader nav_icon"></i> <span class="nav_name">Môn Học</span> </a>
-                    <a href="teacher.php" class="nav_link "> <i class="fas fa-graduation-cap nav_icon"></i> <span class="nav_name">Giáo Viên</span> </a>
-                    <a href="result.php" class="nav_link "> <i class="fas fa-marker nav_icon"></i> <span class="nav_name">Kết Quả Điểm</span> </a>
+                    <a href="dashboard.php" class="nav_link" id="dashboard">
+                        <i class="fas fa-chart-line nav_icon"></i>
+                        <span class="nav_name">Home</span>
+                    </a>
+                    <a href="class.php" class="nav_link" id="class">
+                        <i class="fas fa-school nav_icon"></i>
+                        <span class="nav_name">Lớp Học</span>
+                    </a>
+                    <a href="subject.php" class="nav_link" id="subject">
+                        <i class="fas fa-book-reader nav_icon"></i>
+                        <span class="nav_name">Môn Học</span>
+                    </a>
+                    <a href="teacher.php" class="nav_link" id="teacher">
+                        <i class="fas fa-graduation-cap nav_icon"></i>
+                        <span class="nav_name">Giáo Viên</span>
+                    </a>
+                    <a href="result.php" class="nav_link" id="result">
+                        <i class="fas fa-marker nav_icon"></i>
+                        <span class="nav_name">Kết Quả Điểm</span>
+                    </a>
                 </div>
             </div>
             <!-- <a href="#" class="nav_link"> <span class="nav_name">SignOut</span> </a> -->

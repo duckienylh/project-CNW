@@ -4,25 +4,25 @@ include 'headerad.php';
 <main>
     <div class="height-100 bg-light">
 
-        <div class="col py-3  "  >
+        <div class="col py-3  ">
             <div class="container ">
                 <div class="row mt-3 pt-3 border-bottom border-light">
                     <div class="col-md-6">
                         <h2>Result</h2>
                     </div>
                 </div>
-                
-                
+
+
             </div>
             <div class="container-fluid py-3" style="width:100% ; overflow: auto; height: auto">
-            <div class="row">
+                <div class="row">
                     <div class="float-end py-2">
                         <a href="" class="btn btn-md btn-outline-light btn-primary float-end">
                             <i class="fas fa-user-plus"></i> Thêm Điểm
                         </a>
                     </div>
                 </div>
-            <table class="table table-hover display" id="example">
+                <table class="table table-hover table-striped table-bordered" id="example">
                     <thead>
                         <tr>
                             <th scope="col">Mã học sinh</th>
@@ -33,7 +33,7 @@ include 'headerad.php';
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
+                        <?php
                         include '../config.php';
                         $sql = "SELECT  st.st_id, st.st_name, m.ma_avarage FROM students st, marks m 
                         WHERE st.st_id = m.st_id";
@@ -47,7 +47,7 @@ include 'headerad.php';
                                     <td><?php echo $row['st_name']; ?></td>
                                     <td><?php echo $row['ma_avarage']; ?></td>
                                     <td>
-                                    <a class="btn btn-warning" href="">Details</a>
+                                        <a class="btn btn-warning" href="">Chi Tiết</a>
                                     </td>
                                 </tr>
                         <?php
@@ -63,11 +63,7 @@ include 'headerad.php';
 </main>
 <script>
     $(document).ready(function() {
-        $('#example').DataTable({
-            search: {
-                return: true
-            }
-        });
+        $('#example').DataTable();
     });
 </script>
 <?php

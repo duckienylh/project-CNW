@@ -4,7 +4,7 @@ include 'headerad.php';
 <main>
     <div class="height-100 bg-light">
         <div class=" col py-3 ">
-            <div class="containe ">
+            <div class="container ">
                 <div class="row mt-3 pt-3 border-bottom border-light">
                     <div class="col-md-6">
                         <h2>Teacher</h2>
@@ -21,7 +21,7 @@ include 'headerad.php';
                         </a>
                     </div>
                 </div>
-                <table class="table table-hover display" id="example">
+                <table class="table table-hover table-striped" id="example">
                     <thead>
                         <tr>
                             <th scope="col">Mã giáo viên</th>
@@ -72,11 +72,7 @@ include 'headerad.php';
 </main>
 <script>
     $(document).ready(function() {
-        $('#example').DataTable({
-            search: {
-                return: true
-            }
-        });
+        $('#example').DataTable();
     });
 </script>
 <?php
