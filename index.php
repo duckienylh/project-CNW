@@ -62,8 +62,16 @@
             </div>
         </section>
     <?php
-    } 
-    
+    } else{
+        $client_user = $_SESSION['current_user'];
+        if($client_user['user_level'] == 0){
+            header('location:admin/dashboard.php');
+        } if($client_user['user_level'] == 1){
+            header('location:teacher/list-teacher.php');
+        } if($client_user['user_level'] == 2){
+            header('location:student/student-index.php');
+        }
+}
     // tạm thời head đến trang index cơ bản vì lv người dùng trong db = 0 và chưa phân chia form rõ ràng bên phân quyền
  
     ?>
@@ -93,16 +101,17 @@
                     alert(response.message);
                 } else { // đăng nhập thành công
                     alert(response.message);
-                    if(response.level == 0){// phân quyền đăng nhập
-                        window.location.href = 'admin/dashboard.php';
+                    // if(response.level == 0){// phân quyền đăng nhập
+                    //     window.location.href = 'admin/dashboard.php';
                         
-                    } else if(response.level ==1){
-                        window.location.href = 'teacher/list-teacher.php';
+                    // } else if(response.level == 1){
+                    //     window.location.href = 'teacher/list-teacher.php';
                         
-                    } else if(response.level ==2){
-                        window.location.href = 'student/student-index.php';
+                    // } else if(response.level == 2){
+                    //     window.location.href = 'student/student-index.php';
                         
-                    }
+                    // }
+                    location.reload();
                     
                 }
             }
