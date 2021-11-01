@@ -1,10 +1,6 @@
 <?php
 include './sidebar.php';
 include "../config.php";
-session_start();
-if (!isset($_SESSION['current_user'])) {
-    header("location:../index.php");
-}
 // $id = $_GET['id']
 ?>
 
