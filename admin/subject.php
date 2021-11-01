@@ -4,10 +4,10 @@ include 'headerad.php';
 <main>
     <div class="height-100 bg-light">
         <div class="col py-3  ">
-            <div class="container ">
-                <div class="row mt-3 pt-3 border-bottom border-light">
+            <div class="container-fluid ">
+                <div class="row mt-3 pt-3 border-bottom border-dark">
                     <div class="col-md-6">
-                        <h2>Subject</h2>
+                        <h2>Danh sách môn học</h2>
                     </div>
                 </div>
 
