@@ -17,14 +17,14 @@ include 'headerad.php'
                         </div>
                     </div>
                     <div class="col-md-3 col-12 bg-info d-flex mb-2 rounded justify-content-center">
-                        <div class="mt-3 mb-3" style="font-size: 1.875rem"><i class="fas fa-school"></i></i></div>
+                        <div class="mt-3 mb-3" style="font-size: 1.875rem"><i class="fas fa-school"></i></div>
                         <div class="ps-3 my-3">
                             <p>Total Classes</p>
                             <p></p>
                         </div>
                     </div>
                     <div class="col-md-3 col-12 bg-info d-flex mb-2 rounded justify-content-center">
-                        <div class="mt-3 mb-3" style="font-size: 1.875rem"><i class="fas fa-book-open"></i></i></div>
+                        <div class="mt-3 mb-3" style="font-size: 1.875rem"><i class="fas fa-book-open"></i></div>
                         <div class="ps-3 my-3">
                             <p>Total Subjects</p>
                             <p></p>

@@ -56,7 +56,7 @@
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item nav_link" href="../index.php"><span class="nav_name">Thoát</span></a></li>
+                    <li><a class="dropdown-item nav_link" href="../logout.php"><span class="nav_name">Thoát</span></a></li>
                 </ul>
             </div>
         </nav>
