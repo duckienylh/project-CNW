@@ -1,7 +1,8 @@
 <?php
 include './sidebar.php';
 include "../config.php";
-// $id = $_GET['id']
+
+$id = $client_user['user_id'];
 ?>
 
 <!-- body -->
@@ -16,7 +17,7 @@ include "../config.php";
             <?php
             // $sql = "SELECT c.class_id, c.class_name FROM class c,teacher t
             //         WHERE c.teach_id = '111'";
-            $sql = "SELECT class_id, class_name, teach_id FROM classes WHERE teach_id = '112'";
+            $sql = "SELECT class_id, class_name, teach_id FROM classes WHERE teach_id = '$id'";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -47,8 +48,8 @@ include "../config.php";
             <tbody>
                 <?php
 
-                $sql2 = "SELECT * FROM  students st,teachers t,classes c
-                        WHERE st.class_id = c.class_id and c.teach_id = t.teach_id";
+                $sql2 = "SELECT * FROM  students st,teachers t,classes c,users u
+                        WHERE st.class_id = c.class_id and c.teach_id = t.teach_id and t.teach_id = u.user_id";
                 $result2 = mysqli_query($conn, $sql2);
                 if (mysqli_num_rows($result2) > 0) {
                     while ($row = mysqli_fetch_assoc($result2)) {

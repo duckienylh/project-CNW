@@ -1,5 +1,7 @@
 <?php
 include './sidebar.php';
+include "../config.php";
+$id = $client_user['user_id'];
 ?>
 <!-- body -->
 <div class="col py-3 ">
@@ -10,22 +12,36 @@ include './sidebar.php';
     </div>
 
     <div class="d-flex mb-2 mt-2 flex-wrap">
-        
+
         <label class="control-label fw-bolder">lớp: </label>
-        <div class="me-3">
-            <select class="ms-1">
-                <option value="">lớp 10</option>
-                <option value="">lớp 11</option>
-                <option value="">lớp 12</option>
+        <div class="me-3 ms-1">
+            <select class="ms-1" id="sortby" name="sortby">
+                <?php
+                $sql3 = "SELECT * FROM teachers t, students st, classes c WHERE t.teach_id = '$id' AND st.class_id = c.class_id AND t.teach_id = c.teach_id";
+                $result3 = mysqli_query($conn, $sql3);
+
+                if (mysqli_num_rows($result3)) {
+                    while ($row = mysqli_fetch_assoc($result3)) {
+                        echo '<option value="' . $row['class_id'] . '">' . $row['class_name'] . '</option>';
+                    }
+                }
+                ?>
             </select>
         </div>
         <label class="control-label fw-bolder">môn học: </label>
-        <div class="me-3">
-            <select class="ms-1">
-                <option value="">lớp 10</option>
-                <option value="">lớp 11</option>
-                <option value="">lớp 12</option>
-            </select>
+        <div class="ms-1 fw-bolder">
+            <?php
+
+            $sql2 = "SELECT * FROM subjects sb,teachers t WHERE t.teach_id = '$id' AND sb.sb_id = t.sb_id ";
+            $result2 = mysqli_query($conn, $sql2);
+
+            if (mysqli_num_rows($result2)) {
+                while ($row2 = mysqli_fetch_assoc($result2)) {
+                    echo  $row2['sb_name'];
+                }
+            }
+            ?>
+
         </div>
     </div>
     <div class="col-md-12 portlet" style="width:100% ; overflow: auto; height: auto; ">
@@ -44,12 +60,12 @@ include './sidebar.php';
                     <th scope="col">Điểm tb</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="list">
                 <?php
-                
-                include "../config.php";
-                $sql = "SELECT * FROM students st,subjects s,marks m
-                        WHERE st.st_id = m.st_id and s.sb_id = m.sb_id";
+
+
+                $sql = "SELECT * FROM students st,subjects s,marks m,teachers t
+                        WHERE st.st_id = m.st_id and s.sb_id = m.sb_id and t.teach_id = '$id' and t.sb_id = s.sb_id";
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
@@ -63,14 +79,14 @@ include './sidebar.php';
                             <td><?php echo $row['ma_hour_test']; ?></td>
                             <td><?php echo $row['ma_final_exam']; ?></td>
                             <?php
-                                $mini = $row['ma_mini_test'];
-                                $hour = $row['ma_hour_test'];
-                                $final = $row['ma_final_exam'];
-                                $avg = ($mini+$hour*2+$final*3)/7;
+                            $mini = $row['ma_mini_test'];
+                            $hour = $row['ma_hour_test'];
+                            $final = $row['ma_final_exam'];
+                            $avg = ($mini + $hour * 2 + $final * 3) / 7;
                             ?>
-                            <td><?php echo round($avg,2); ?></td>
+                            <td><?php echo round($avg, 2); ?></td>
 
-                            
+
                         </tr>
                 <?php
                     }
@@ -81,8 +97,25 @@ include './sidebar.php';
             </tbody>
         </table>
     </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 </div>
 <?php
 include './footer.php';
 ?>
+<script>
+    $(document).ready(function(){
+                // Each time you change your sort list, send AJAX request
+                $("#sortby").change(function(){
+                    $.ajax({
+                        method: "POST",
+                        url: "request.php",
+                        data: { sortby:$("#sortby").val() }
+                    })
+                    // Copy the AJAX response in the table
+                    .done(function( msg ) {
+                        $("#list").html(msg);
+                    });
+                });
+            });
+</script>
