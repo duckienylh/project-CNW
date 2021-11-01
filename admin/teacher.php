@@ -23,7 +23,7 @@ include 'headerad.php';
                 </div>
                 <table class="table table-hover table-striped" id="example">
                     <thead>
-                        <tr>
+                        <tr class="table-info">
                             <th scope="col">Mã giáo viên</th>
                             <th scope="col">Tên giáo viên</th>
                             <th scope="col">Email</th>
@@ -57,7 +57,7 @@ include 'headerad.php';
                                     <td><?php echo $row['sb_name']; ?></td>
                                     <td>
                                         <a class="btn btn-warning" href=""><i class="fas fa-user-edit"></i></a>
-                                        <a class="btn btn-danger" href=""><i class="fas fa-user-slash"></i></i></a>
+                                        <a class="btn btn-danger" href=""><i class="fas fa-user-slash"></i></a>
                                     </td>
                                 </tr>
                         <?php

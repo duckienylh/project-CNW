@@ -22,9 +22,9 @@ include 'headerad.php';
                         </a>
                     </div>
                 </div>
-                <table class="table table-hover table-striped table-bordered" id="example">
+                <table class="table table-hover table-striped " id="example">
                     <thead>
-                        <tr>
+                        <tr class="table-info">
                             <th scope="col">Mã học sinh</th>
                             <th scope="col">Tên học sinh</th>
                             <th scope="col">Điểm trung bình</th>

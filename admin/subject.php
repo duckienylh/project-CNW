@@ -21,9 +21,9 @@ include 'headerad.php';
                         </a>
                     </div>
                 </div>
-                <table class="table table-hover table-striped table-bordered" id="example">
+                <table class="table table-hover table-striped " id="example">
                     <thead>
-                        <tr>
+                        <tr class="table-info">
                             <th scope="col">Mã Môn Học</th>
                             <th scope="col">Tên Môn Học</th>
                             <th scope="col">Giáo Viên</th>
