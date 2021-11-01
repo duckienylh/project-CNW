@@ -1,10 +1,10 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 :root {
     --header-height: 3rem;
     --nav-width: 68px;
@@ -114,13 +114,13 @@ a {
 
 .nav_link {
     position: relative;
-    color: var(--first-color-dark);
+    color: var(--first-color-light);
     margin-bottom: 1.5rem;
     transition: .3s
 }
 
 .nav_link:hover {
-    color: var(--white-color)
+    color: var(--dark-color)
 }
 
 .nav_icon {
@@ -157,30 +157,24 @@ a {
         margin: calc(var(--header-height) + 1rem) 0 0 0;
         padding-left: calc(var(--nav-width) + 2rem)
     }
-
     .header {
         height: calc(var(--header-height) + 1rem);
         padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
     }
-
     .header_img {
         width: 40px;
         height: 40px
     }
-
     .header_img img {
         width: 45px
     }
-
     .l-navbar {
         left: 0;
         padding: 1rem 1rem 0 0
     }
-
     .show {
         width: calc(var(--nav-width) + 156px)
     }
-
     .body-pd {
         padding-left: calc(var(--nav-width) + 188px)
     }
