@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>Quản Lý Học Sinh</title>
 </head>
@@ -20,11 +23,26 @@
             <div>
                 <span class=" nav_logo nav_logo-name"></span>
                 <div class="nav_list">
-                    <a href="dashboard.php" class="nav_link  "> <i class="fas fa-chart-line nav_icon"></i> <span class="nav_name">Dashboard</span> </a>
-                    <a href="class.php" class="nav_link "> <i class="fas fa-school nav_icon"></i> <span class="nav_name">Lớp Học</span> </a>
-                    <a href="subject.php" class="nav_link "> <i class="fas fa-book-reader nav_icon"></i> <span class="nav_name">Môn Học</span> </a>
-                    <a href="teacher.php" class="nav_link "> <i class="fas fa-graduation-cap nav_icon"></i> <span class="nav_name">Giáo Viên</span> </a>
-                    <a href="result.php" class="nav_link "> <i class="fas fa-marker nav_icon"></i> <span class="nav_name">Kết Quả Điểm</span> </a>
+                    <a href="dashboard.php" class="nav_link" id="dashboard">
+                        <i class="fas fa-chart-line nav_icon"></i>
+                        <span class="nav_name">Home</span>
+                    </a>
+                    <a href="class.php" class="nav_link" id="class">
+                        <i class="fas fa-school nav_icon"></i>
+                        <span class="nav_name">Lớp Học</span>
+                    </a>
+                    <a href="subject.php" class="nav_link" id="subject">
+                        <i class="fas fa-book-reader nav_icon"></i>
+                        <span class="nav_name">Môn Học</span>
+                    </a>
+                    <a href="teacher.php" class="nav_link" id="teacher">
+                        <i class="fas fa-graduation-cap nav_icon"></i>
+                        <span class="nav_name">Giáo Viên</span>
+                    </a>
+                    <a href="result.php" class="nav_link" id="result">
+                        <i class="fas fa-marker nav_icon"></i>
+                        <span class="nav_name">Kết Quả Điểm</span>
+                    </a>
                 </div>
             </div>
             <!-- <a href="#" class="nav_link"> <span class="nav_name">SignOut</span> </a> -->
@@ -38,7 +56,7 @@
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item nav_link" href="../index.php"><span class="nav_name">Thoát</span></a></li>
+                    <li><a class="dropdown-item nav_link" href="../logout.php"><span class="nav_name">Thoát</span></a></li>
                 </ul>
             </div>
         </nav>

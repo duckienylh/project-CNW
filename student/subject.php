@@ -32,7 +32,7 @@ include './sidebarst.php';
                             $result = mysqli_query($conn, $sql);
                            
 
-                            //* B3: Phân tích sử lý kết quả
+                            //* B3: Phân tích sử lý kết quả,,,,
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo "<tr>";
