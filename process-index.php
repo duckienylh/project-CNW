@@ -51,4 +51,4 @@ if (mysqli_num_rows($result) > 0) { // vòng if kiểm tra câu lệnh truy vấ
     exit;
 }
 
-mysqli_close($conn); 
+mysqli_close($conn);
