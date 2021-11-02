@@ -1,34 +1,24 @@
+
 <?php
 include './sidebar.php';
 include "../config.php";
 $id = $client_user['user_id'];
+$class_name = $_GET['class_name'];
+$class_id = $_GET['class_id'];
 ?>
 <!-- body -->
 <div class="col py-3 ">
 
     <div class="d-flex justify-content-between bg-light">
         <p><i class="fas fa-keyboard"></i> Nhập điểm môn học</p>
+        <button type="submit" class="btn btn-primary">cập nhật</button>
     </div>
 
     <div class="d-flex mb-2 mt-2 flex-wrap">
-
         <label class="control-label fw-bolder">lớp: </label>
-        <div class="me-3 ms-1">
-            
-                <?php
-                $sql3 = "SELECT * FROM teachers t, students st, classes c WHERE t.teach_id = '$id' AND st.class_id = c.class_id AND t.teach_id = c.teach_id";
-                $result3 = mysqli_query($conn, $sql3);
+        <div class="me-3 ms-1">       
+            <?php echo $class_name?>
 
-                if (mysqli_num_rows($result3)) {
-                    while ($row = mysqli_fetch_assoc($result3)) {
-                ?>
-                        <a href="request.php?class_id=<?php echo $row['class_id']?>&class_name=<?php echo $row['class_name']?>"><?php echo $row['class_name']?></a>
-                <?php
-                    }
-                }
-                ?>
-           
-            
         </div>
         <label class="control-label fw-bolder">môn học: </label>
         <div class="ms-1 fw-bolder">
@@ -67,8 +57,8 @@ $id = $client_user['user_id'];
                 <?php
 
 
-                $sql = "SELECT * FROM students st,subjects s,marks m,teachers t
-                        WHERE st.st_id = m.st_id and s.sb_id = m.sb_id and t.teach_id = '$id' and t.sb_id = s.sb_id";
+                $sql = "SELECT * FROM students st,subjects s,marks m,teachers t, classes c
+                        WHERE st.st_id = m.st_id and s.sb_id = m.sb_id and t.teach_id = '$id' and t.sb_id = s.sb_id and c.class_id = '$class_id'";
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
@@ -83,6 +73,7 @@ $id = $client_user['user_id'];
                             <td><?php echo $row['ma_final_exam']; ?></td>
                             <td><?php echo $row['ma_avarage']; ?></td>
                             <td class="text-center"><a href="update-mark.php?st_id=<?php echo $row['st_id']?>&sb_id=<?php echo $row['sb_id']?>"><button type="submit" class="btn btn-primary">cập nhật</button></a></td>
+
                         </tr>
                 <?php
                     }
@@ -99,19 +90,3 @@ $id = $client_user['user_id'];
 <?php
 include './footer.php';
 ?>
-<script>
-    // $(document).ready(function(){
-    //             // Each time you change your sort list, send AJAX request
-    //             $("#sortby").change(function(){
-    //                 $.ajax({
-    //                     method: "POST",
-    //                     url: "request.php",
-    //                     data: { sortby:$("#sortby").val() }
-    //                 })
-    //                 // Copy the AJAX response in the table
-    //                 .done(function( msg ) {
-    //                     $("#list").html(msg);
-    //                 });
-    //             });
-    //         });
-</script>

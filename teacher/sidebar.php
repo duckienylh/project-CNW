@@ -3,6 +3,7 @@
     if (!isset($_SESSION['current_user'])) {
         header("location:../index.php");
 }
+$client_user = $_SESSION['current_user'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +36,7 @@
             <div class="dropdown pb-4 ps-3">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="https://avatars.githubusercontent.com/u/90234391?s=48&v=4" alt="hugenerd" class=" header_img rounded-circle">
-                    <span class="d-none d-sm-inline mx-1 text-dark"> Đức Kiên</span>
+                    <span class="d-none d-sm-inline mx-1 text-dark"> <?php echo $client_user['user_name']; ?></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-light text-small shadow">
                     
