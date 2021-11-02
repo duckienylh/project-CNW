@@ -1,5 +1,7 @@
 <?php
 include './sidebarst.php';
+include "../config.php";
+$id = $client_user['user_id'];
 ?>
 
 <div class="col py-3">
@@ -16,7 +18,8 @@ include './sidebarst.php';
                 <thead class=" text while">
                     <tr>
                         <th scope="col">Mã học sinh</th>
-                        <th scope="col">Mã môn học</th>
+                        <th scope="col">Tên học sinh</th>
+                        <th scope="col">Tên môn học</th>
                         <th scope="col">Điểm KT 1 tiết</th>
                         <th scope="col">Điểm cuối kỳ</th>
                         <th scope="col">Điểm trung bình</th>
@@ -49,7 +52,7 @@ include './sidebarst.php';
                             //* B4: đóng kết nối
                             mysqli_close($conn);
                             ?>
-                    
+
                 </tbody>
             </table>
         </div>
