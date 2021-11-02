@@ -107,8 +107,8 @@ include 'headerad.php';
                                     <td><?php echo $row['teach_birth']; ?></td>
                                     <td><?php echo $row['sb_name']; ?></td>
                                     <td>
-                                        <a class="btn btn-warning" href=""><i class="fas fa-user-edit"></i></a>
-                                        <a class="btn btn-danger" href=""><i class="fas fa-user-slash"></i></a>
+                                        <a class="btn btn-warning" href="edit-teacher.php?id=<?php echo  $row['teach_id'] ?>"><i class="fas fa-user-edit"></i></a>
+                                        <a class="btn btn-danger" href="process-delete-teacher.php?id=<?php echo  $row['teach_id'] ?>"><i class="fas fa-user-slash"></i></a>
                                     </td>
                                 </tr>
                         <?php

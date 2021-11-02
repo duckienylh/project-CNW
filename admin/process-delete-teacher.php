@@ -1,7 +1,7 @@
 <?php
     include '../config.php';
     $id = $_GET['id'];
-    $sql ="DELETE FROM subjects WHERE  `sb_id` = '$id'" ;
+    $sql ="DELETE FROM teachers WHERE `teach_id` = '$id'" ;
     $result = mysqli_query($conn,$sql);
     if($result>0){
         header("Location:subject.php");
