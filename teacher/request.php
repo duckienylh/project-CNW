@@ -50,6 +50,7 @@ $class_id = $_GET['class_id'];
                     <th scope="col">Điểm giữa kì</th>
                     <th scope="col">Điểm cuối kì</th>
                     <th scope="col">Điểm tb</th>
+                    <th scope="col">Thêm điểm</th>
                 </tr>
             </thead>
             <tbody id="list">
@@ -70,14 +71,8 @@ $class_id = $_GET['class_id'];
                             <td><?php echo $row['ma_mini_test']; ?></td>
                             <td><?php echo $row['ma_hour_test']; ?></td>
                             <td><?php echo $row['ma_final_exam']; ?></td>
-                            <?php
-                            $mini = $row['ma_mini_test'];
-                            $hour = $row['ma_hour_test'];
-                            $final = $row['ma_final_exam'];
-                            $avg = ($mini + $hour * 2 + $final * 3) / 7;
-                            ?>
-                            <td><?php echo round($avg, 2); ?></td>
-
+                            <td><?php echo $row['ma_avarage']; ?></td>
+                            <td class="text-center"><a href="update-mark.php?st_id=<?php echo $row['st_id']?>&sb_id=<?php echo $row['sb_id']?>"><button type="submit" class="btn btn-primary">cập nhật</button></a></td>
 
                         </tr>
                 <?php
