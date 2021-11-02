@@ -130,8 +130,14 @@ include 'headerad.php';
 if (isset($_POST['btnSave'])) {
     $teachid = $_POST['teachid'];
     $teachname = $_POST['teachname'];
-    $sql2 = "INSERT INTO `subjects`(`sb_id`, `sb_name`)
-    VALUES ('$subjectid','$subjectname') ";
+    $teachemail = $_POST['teachemail'];
+    $teachphone = $_POST['teachphone'];
+    $teachaddress = $_POST['teachaddress'];
+    $teachgender = $_POST['teachgender'];
+    $teachbirth = $_POST['teachbirth'];
+    $subjid = $_POST['subjid'];
+    $sql2 = "INSERT INTO `teachers`(`teach_id`, `teach_name`, `teach_email`, `teach_phone`, `teach_address`, `teach_gender`, `teach_birth`, `sb_id`)
+     VALUES ('$teachid','$teachname','$teachemail','$teachphone','$teachaddress','$teachgender','$teachbirth','$subjid') ";
 
     $result = mysqli_query($conn, $sql2);
 
