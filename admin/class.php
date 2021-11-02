@@ -40,13 +40,13 @@ include 'headerad.php';
                                                 <input type="text" class="form-control" name="classname" id="classname" placeholder="Nhập tên lớp học:10A1,11A1,12A1,....">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="teachid" class="form-label">Nhập mã giáo viên chủ nhiệm</label>
+                                                <label for="teachid" class="form-label">Mã giáo viên chủ nhiệm</label>
                                                 <input type="text" class="form-control" name="teachid" id="teachid" placeholder="Nhập mã giáo viên:GV01,GV02,...">
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                            <button type="submit" class="btn btn-primary" name="btnSave">Lưu thay đổi</button>
+                                            <button type="submit" class="btn btn-primary" name="btnSave">Thêm</button>
                                         </div>
                                     </form>
                                 </div>
