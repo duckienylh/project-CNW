@@ -8,7 +8,7 @@ include './sidebarst.php';
     <main class="container-fluid" style="min-width: 759px;">
         <div class="d-flex justify-content-between bg-light ">
             <div class="col-md-6">
-                <h2 class="text-primary">Student</h2>
+                <h2 class="text-primary">Học Sinh</h2>
             </div>
             <form method="post">
                 <div class="row">
@@ -57,7 +57,7 @@ include './sidebarst.php';
                                   //* B2: Truy vấn
                                 //? lưu kết quả trả về $result
                                 $result = mysqli_query($conn, $sql);
-                                echo $id_student;
+                               
                                 //* B3: Phân tích sử lý kết quả
                                 if (mysqli_num_rows($result) > 0) {
                                     while ($row = mysqli_fetch_assoc($result)) {
