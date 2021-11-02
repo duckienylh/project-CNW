@@ -44,12 +44,14 @@ $sb_id = $_GET['sb_id'];
         }
     }
         ?>
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-10">
-                <button type="submit" name="btnupdate" class="btn btn-success">update</button>
-            </div>
-        </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <button type="submit" name="btnupdate" class="btn btn-success">Thêm</button>
+                        <a href="mark.php"><button type="" name="btnupdate" class="btn btn-success">quay lại</button></a>
+                    </div>
+                </div>
+
             </form>
 
 </main>
@@ -66,7 +68,7 @@ if (isset($_POST['btnupdate'])) {
 
     $result = mysqli_query($conn, $sql);
     if ($result > 0) {
-        ?>
+?>
         <script>
             window.location.href = 'mark.php';
         </script>
