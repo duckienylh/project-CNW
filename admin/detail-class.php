@@ -59,5 +59,29 @@ $id = $_GET['classid']
 
 </main>
 <?php
+if (isset($_POST['btnSave'])) {
+    $classid = $_POST['classid'];
+    $classname = $_POST['classname'];
+    $teachid = $_POST['teachid'];
+    $sql2 = "INSERT INTO `classes`(`class_id`, `class_name`, `teach_id`)
+     VALUES ('$classid','$classname','$teachid') ";
+
+    $result = mysqli_query($conn, $sql2);
+
+    if ($result > 0) {
+?>
+    <script>
+        location.reload();
+    </script>
+<?php
+    } else {
+        echo "Lỗi!";
+    }
+
+    mysqli_close($conn);
+}
+
+?>
+<?php
 include 'footerad.php'
 ?>

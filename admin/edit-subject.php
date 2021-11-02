@@ -68,7 +68,7 @@ if (isset($_POST['btnSave'])) {
 }
 
 ?>
-?>
+
 <?php
 include 'footerad.php'
 ?>
