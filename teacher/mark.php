@@ -8,25 +8,27 @@ $id = $client_user['user_id'];
 
     <div class="d-flex justify-content-between bg-light">
         <p><i class="fas fa-keyboard"></i> Nhập điểm môn học</p>
-        <button type="submit" class="btn btn-primary">cập nhật</button>
     </div>
 
     <div class="d-flex mb-2 mt-2 flex-wrap">
 
         <label class="control-label fw-bolder">lớp: </label>
         <div class="me-3 ms-1">
-            <select class="ms-1" id="sortby" name="sortby">
+            
                 <?php
                 $sql3 = "SELECT * FROM teachers t, students st, classes c WHERE t.teach_id = '$id' AND st.class_id = c.class_id AND t.teach_id = c.teach_id";
                 $result3 = mysqli_query($conn, $sql3);
 
                 if (mysqli_num_rows($result3)) {
                     while ($row = mysqli_fetch_assoc($result3)) {
-                        echo '<option value="' . $row['class_id'] . '">' . $row['class_name'] . '</option>';
+                ?>
+                        <a href="request.php?class_id=<?php echo $row['class_id']?>&class_name=<?php echo $row['class_name']?>"><?php echo $row['class_name']?></a>
+                <?php
                     }
                 }
                 ?>
-            </select>
+           
+            
         </div>
         <label class="control-label fw-bolder">môn học: </label>
         <div class="ms-1 fw-bolder">
@@ -58,6 +60,7 @@ $id = $client_user['user_id'];
                     <th scope="col">Điểm giữa kì</th>
                     <th scope="col">Điểm cuối kì</th>
                     <th scope="col">Điểm tb</th>
+                    <th scope="col">Thêm điểm</th>
                 </tr>
             </thead>
             <tbody id="list">
@@ -85,8 +88,7 @@ $id = $client_user['user_id'];
                             $avg = ($mini + $hour * 2 + $final * 3) / 7;
                             ?>
                             <td><?php echo round($avg, 2); ?></td>
-
-
+                            <td class="text-center"><a href="update-mark.php?st_id=<?php echo $row['st_id']?>&sb_id=<?php echo $row['sb_id']?>"><button type="submit" class="btn btn-primary">cập nhật</button></a></td>
                         </tr>
                 <?php
                     }
@@ -104,18 +106,18 @@ $id = $client_user['user_id'];
 include './footer.php';
 ?>
 <script>
-    $(document).ready(function(){
-                // Each time you change your sort list, send AJAX request
-                $("#sortby").change(function(){
-                    $.ajax({
-                        method: "POST",
-                        url: "request.php",
-                        data: { sortby:$("#sortby").val() }
-                    })
-                    // Copy the AJAX response in the table
-                    .done(function( msg ) {
-                        $("#list").html(msg);
-                    });
-                });
-            });
+    // $(document).ready(function(){
+    //             // Each time you change your sort list, send AJAX request
+    //             $("#sortby").change(function(){
+    //                 $.ajax({
+    //                     method: "POST",
+    //                     url: "request.php",
+    //                     data: { sortby:$("#sortby").val() }
+    //                 })
+    //                 // Copy the AJAX response in the table
+    //                 .done(function( msg ) {
+    //                     $("#list").html(msg);
+    //                 });
+    //             });
+    //         });
 </script>
