@@ -30,36 +30,44 @@ include 'headerad.php';
                                     <form method="POST">
                                         <div class="modal-body">
                                             <div class="mb-3">
+                                                <label for="username" class="form-label">Tên đăng nhập</label>
+                                                <input type="text" class="form-control" name="username" id="username" placeholder="Tên đăng nhập hệ thống" require>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="userpass" class="form-label">Mật khẩu</label>
+                                                <input type="password" class="form-control" name="userpass" id="userpass" placeholder="Mật khẩu đăng nhập" require>
+                                            </div>
+                                            <div class="mb-3">
                                                 <label for="teachid" class="form-label">Mã Giáo Viên</label>
-                                                <input type="text" class="form-control" name="teachid" id="teachid" placeholder="Nhập mã môn học:Maths,Literature,....">
+                                                <input type="text" class="form-control" name="teachid" id="teachid" placeholder="Nhập mã môn học:Maths,Literature,...." require>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="teachname" class="form-label">Tên Giáo Viên</label>
-                                                <input type="text" class="form-control" name="teachname" id="teachname" placeholder="Nhập tên môn học:Toán,Văn,....">
+                                                <input type="text" class="form-control" name="teachname" id="teachname" placeholder="Nhập tên môn học:Toán,Văn,...." require>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="teachemail" class="form-label">Email</label>
-                                                <input type="email" class="form-control" name="teachemail" id="teachemail" placeholder="name@example.com">
+                                                <input type="email" class="form-control" name="teachemail" id="teachemail" placeholder="name@example.com" >
                                             </div>
                                             <div class="mb-3">
                                                 <label for="teachphone" class="form-label">Số điện thoại</label>
-                                                <input type="tel" class="form-control" name="teachphone" id="teachphone" placeholder="Nhập số điện thoại: 01214131,....">
+                                                <input type="tel" class="form-control" name="teachphone" id="teachphone" placeholder="Nhập số điện thoại: 01214131,...." >
                                             </div>
                                             <div class="mb-3">
                                                 <label for="teachaddress" class="form-label">Địa chỉ</label>
-                                                <input type="text" class="form-control" name="teachaddress" id="teachaddress" placeholder="Nhập địa chỉ: Hà Nội,...">
+                                                <input type="text" class="form-control" name="teachaddress" id="teachaddress" placeholder="Nhập địa chỉ: Hà Nội,..." require>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="teachgender" class="form-label">Giới tính</label>
-                                                <input type="text" class="form-control" name="teachgender" id="teachgender" placeholder="Nhập giới tính:Nam/Nữ">
+                                                <input type="text" class="form-control" name="teachgender" id="teachgender" placeholder="Nhập giới tính:Nam/Nữ" require>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="teachbirth" class="form-label">Ngày Sinh</label>
-                                                <input type="date" class="form-control" name="teachbirth" id="teachbirth" >
+                                                <input type="date" class="form-control" name="teachbirth" id="teachbirth">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="subjid" class="form-label">Mã môn dạy</label>
-                                                <input type="text" class="form-control" name="subjid" id="subjid" placeholder="Nhập mã môn học:Maths,Literature,....">
+                                                <input type="text" class="form-control" name="subjid" id="subjid" placeholder="Nhập mã môn học:Maths,Literature,...." require>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -136,16 +144,24 @@ if (isset($_POST['btnSave'])) {
     $teachgender = $_POST['teachgender'];
     $teachbirth = $_POST['teachbirth'];
     $subjid = $_POST['subjid'];
-    $sql2 = "INSERT INTO `teachers`(`teach_id`, `teach_name`, `teach_email`, `teach_phone`, `teach_address`, `teach_gender`, `teach_birth`, `sb_id`)
-     VALUES ('$teachid','$teachname','$teachemail','$teachphone','$teachaddress','$teachgender','$teachbirth','$subjid') ";
+    $username = $_POST['username'];
+    $userpass = $_POST['userpass'];
 
+    $sql2 = "INSERT INTO `teachers`(`teach_id`, `teach_name`, `teach_email`, `teach_phone`, `teach_address`, `teach_gender`, `teach_birth`, `sb_id`)
+    VALUES ('$teachid','$teachname','$teachemail','$teachphone','$teachaddress','$teachgender','$teachbirth','$subjid')";
+   
+    $sql3 = "INSERT INTO `users`(`user_id`, `user_name`, `user_email`, `user_password`, `user_level`) 
+    VALUES ('$teachid','$username','$teachemail','$userpass','1')";
+
+
+    $result2 = mysqli_query($conn, $sql3);
     $result = mysqli_query($conn, $sql2);
 
     if ($result > 0) {
 ?>
-    <script>
-        location.reload();
-    </script>
+        <script>
+            location.reload();
+        </script>
 <?php
     } else {
         echo "Lỗi!";

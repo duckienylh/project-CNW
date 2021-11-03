@@ -31,7 +31,14 @@ $id = $_GET['classid']
                                     </div>
                                     <form method="POST">
                                         <div class="modal-body">
-
+                                        <div class="mb-3">
+                                                <label for="username" class="form-label">Tên đăng nhập</label>
+                                                <input type="text" class="form-control" name="username" id="username" placeholder="Tên đăng nhập hệ thống" require>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="userpass" class="form-label">Mật khẩu</label>
+                                                <input type="password" class="form-control" name="userpass" id="userpass" placeholder="Mật khẩu đăng nhập" require>
+                                            </div>
                                             <div class="mb-3">
                                                 <label for="classid" class="form-label">Mã lớp học</label>
                                                 <input type="text" disabled class="form-control" name="classid" id="classid" value="<?php echo $id?>">
@@ -64,6 +71,10 @@ $id = $_GET['classid']
                                                 <label for="studentparent" class="form-label">Tên phụ huynh</label>
                                                 <input type="text" class="form-control" name="studentparent" id="studentparent" placeholder="">
                                             </div>
+                                            <div class="mb-3">
+                                                <label for="studentemail" class="form-label">Email</label>
+                                                <input type="text" class="form-control" name="studentemail" id="studentemail" placeholder="abc@gmail.com">
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
@@ -84,13 +95,14 @@ $id = $_GET['classid']
                             <th scope="col">Địa chỉ</th>
                             <th scope="col">Giới tính</th>
                             <th scope="col">Số điện thoại</th>
+                            <th scope="col">Email</th>
                             <th scope="col">Phụ huynh</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         include '../config.php';
-                        $sql = "SELECT st_id, st_name, st_birth, st_address, st_gender, st_phone, st_parent FROM students
+                        $sql = "SELECT st_id, st_name, st_birth, st_address, st_gender, st_phone, st_parent, st_email FROM students
                         WHERE students.class_id = '$id'";
                         $result = mysqli_query($conn, $sql);
 
@@ -104,6 +116,7 @@ $id = $_GET['classid']
                                     <td><?php echo $row['st_address']; ?></td>
                                     <td><?php echo $row['st_gender']; ?></td>
                                     <td><?php echo $row['st_phone']; ?></td>
+                                    <td><?php echo $row['st_email']; ?></td>
                                     <td><?php echo $row['st_parent']; ?></td>
                                 </tr>
                         <?php
@@ -126,15 +139,23 @@ if (isset($_POST['btnSave'])) {
     $stgender=$_POST['studentgender'];
     $stphone=$_POST['studentphone'];
     $stparent=$_POST['studentparent'];
-    $sql2 = "INSERT INTO `students`(`st_id`, `st_name`, `st_birth`, `st_address`, `st_gender`, `st_phone`, `st_parent`, `class_id`)
-    VALUES ('$stid','$stname','$stbirth','$staddress','$stgender','$stphone','$stparent', '$id') ";
+    $studentemail=$_POST['studentemail'];
+    $username = $_POST['username'];
+    $userpass = $_POST['userpass'];
 
+    $sql2 = "INSERT INTO `students`(`st_id`, `st_name`, `st_birth`, `st_address`, `st_gender`, `st_phone`, `st_parent`, `st_email`, `class_id`)
+    VALUES ('$stid','$stname','$stbirth','$staddress','$stgender','$stphone','$stparent','$studentemail', '$id') ";
+    
+    $sql3 = "INSERT INTO `users`(`user_id`, `user_name`, `user_email`, `user_password`, `user_level`) 
+    VALUES ('$stid','$username',' $studentemail','$userpass','2')";
+
+    $result2 = mysqli_query($conn, $sql3);
     $result = mysqli_query($conn, $sql2);
 
     if ($result > 0) {
 ?>
     <script>
-        location.reload();
+       location.reload();
     </script>
 <?php
     } else {
