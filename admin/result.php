@@ -17,7 +17,7 @@ include 'headerad.php';
             <div class="container-fluid py-3" style="width:100% ; overflow: auto; height: auto">
                 <div class="row">
                     <div class=" py-2">
-                    <button type="button" class="btn btn-primary btn-md btn-outline-light float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-primary btn-md btn-outline-light float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i class="fas fa-user-plus"></i> Thêm Điểm
                         </button>
 
@@ -90,7 +90,7 @@ include 'headerad.php';
                                     <td><?php echo $row['sb_name']; ?></td>
                                     <td><?php echo $row['ma_avarage']; ?></td>
                                     <td>
-                                        <a class="btn btn-warning" href="detail-result.php?stid=<?php echo $row['st_id']?>&sbid=<?php echo $row['sb_id']?>">Chi Tiết</a>
+                                        <a class="btn btn-warning" href="detail-result.php?stid=<?php echo $row['st_id'] ?>&sbid=<?php echo $row['sb_id'] ?>">Chi Tiết</a>
                                     </td>
                                 </tr>
                         <?php
@@ -124,9 +124,9 @@ if (isset($_POST['btnSave'])) {
 
     if ($result > 0) {
 ?>
-    <script>
-        window.location.href = 'result.php';
-    </script>
+        <script>
+            window.location.href = 'result.php';
+        </script>
 <?php
 
     } else {
