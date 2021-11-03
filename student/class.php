@@ -9,9 +9,8 @@ $id = $client_user['user_id'];
                 <p><i class="fas fa-users"></i> Lớp học
                 </p>
             </div>
-            <div class="d-flex mb-2  ">
-                <LAbel class="control-label fw-bolder">Lớp :
-
+            <div class="d-flex mb-2 ">
+                <LAbel class="control-label fw-bolder">Lớp:
                     <?php
                      // * B1: mở kết nối
                      include '../config.php';
@@ -58,13 +57,10 @@ $id = $client_user['user_id'];
 
                             //? lưu kết quả trả về $result
                             $result = mysqli_query($conn, $sql);
-                           
-
                             //* B3: Phân tích sử lý kết quả,,,,
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo "<tr>";
-                                   
                                     echo '<td>' . $row['st_id'] . '</td>';
                                     echo '<td>' . $row['st_name'] . '</td>';
                                     echo '<td>' . $row['st_birth'] . '</td>';
@@ -78,7 +74,6 @@ $id = $client_user['user_id'];
                             //* B4: đóng kết nối
                             mysqli_close($conn);
                             ?>
-
                 </tbody>
             </table>
         </div>
