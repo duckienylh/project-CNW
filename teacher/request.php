@@ -11,7 +11,7 @@ $class_id = $_GET['class_id'];
 
     <div class="d-flex justify-content-between bg-light">
         <p><i class="fas fa-keyboard"></i> Nhập điểm môn học</p>
-        <button type="submit" class="btn btn-primary">cập nhật</button>
+        
     </div>
 
     <div class="d-flex mb-2 mt-2 flex-wrap">
