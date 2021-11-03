@@ -36,22 +36,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
     // Your code to run since DOM is loaded and ready
 
-    $("#dashboard").click(function() {
-        $("#contents").load('dashboard.php');
-    });
-
-    $("#classes").click(function() {
-        $("#contents").load('class.php');
-    });
-
-    $("#subjects").click(function() {
-        $("#contents").load('subject.php');
-    });
-
-    $("#teachers").click(function() {
-        $("#contents").load('teacher.php');
-    });
-    $("#results").click(function() {
-        $("#contents").load('result.php');
-    });
     });
