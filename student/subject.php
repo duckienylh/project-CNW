@@ -33,7 +33,7 @@ $id = $client_user['user_id'];
                            // * B1: mở kết nối
                             include '../config.php';
                             //* B2: Truy vấn
-                            $sql = "SELECT b.sb_name,t.ma_hour_test,t.ma_final_exam,t.ma_avarage 
+                            $sql = "SELECT b.sb_name ,t.ma_mini_test,t.ma_hour_test,t.ma_final_exam,t.ma_avarage 
                             FROM marks t,subjects b WHERE t.sb_id=b.sb_id";
 
                             //? lưu kết quả trả về $result
@@ -45,7 +45,7 @@ $id = $client_user['user_id'];
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo "<tr>";
                                     echo '<td>' . $row['sb_name'] . '</td>';
-                                    // echo '<td>' . $row['ma_avarage'] . '</td>';
+                                    echo '<td>' . $row['ma_mini_test'] . '</td>';
                                     echo '<td>' . $row['ma_hour_test'] . '</td>';
                                     echo '<td>' . $row['ma_final_exam'] . '</td>';
                                     echo '<td>' . $row['ma_avarage'] . '</td>';

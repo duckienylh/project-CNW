@@ -10,7 +10,7 @@ include "../config.php";
             <h2 class="text-primary">Kết quả</h2>
             <form method="post">
                 <div class="row">
-                    <div class="form-group row  ">
+                    <div class="form-group row">
                         <div class="container-1">
                             <!-- <span class="icon"><i class="fa fa-search"></i></span> -->
                             <input type="text" class="form-control" name="search-name" placeholder="Search name...">
@@ -54,7 +54,7 @@ include "../config.php";
                                 $id_name = $_POST['search-name'];
                                
                                  //* B2: Truy vấn
-                                $sql = "SELECT st.st_id,st.st_name,sb.sb_name,m.ma_hour_test,m.ma_final_exam,m.ma_avarage 
+                                $sql = "SELECT st.st_id,st.st_name,sb.sb_name,m.ma_mini_test,m.ma_hour_test,m.ma_final_exam,m.ma_avarage 
                                 FROM marks m, students st, subjects sb 
                                 WHERE m.st_id=st.st_id and m.sb_id=sb.sb_id and st.st_name like'%$id_name%'";
                                  //? lưu kết quả trả về $result
@@ -66,7 +66,7 @@ include "../config.php";
                                         echo '<td>' . $row['st_id'] . '</td>';
                                         echo '<td>' . $row['st_name'] . '</td>';
                                         echo '<td>' . $row['sb_name'] . '</td>';
-                                        // echo '<td>' . $row['sb_name'] . '</td>';
+                                        echo '<td>' . $row['ma_mini_test'] . '</td>';
                                         echo '<td>' . $row['ma_hour_test'] . '</td>';
                                         echo '<td>' . $row['ma_final_exam'] . '</td>';
                                         echo '<td>' . $row['ma_avarage'] . '</td>';
@@ -75,7 +75,7 @@ include "../config.php";
                                 }
                                 }
                                 else {
-                                    $sql = "SELECT st.st_id,st.st_name,sb.sb_name,m.ma_hour_test,m.ma_final_exam,m.ma_avarage 
+                                    $sql = "SELECT st.st_id,st.st_name,sb.sb_name,m.ma_mini_test,m.ma_hour_test,m.ma_final_exam,m.ma_avarage 
                                     FROM marks m, students st, subjects sb 
                                     WHERE m.st_id=st.st_id and m.sb_id=sb.sb_id";
                                       //? lưu kết quả trả về $result
@@ -87,7 +87,7 @@ include "../config.php";
                                             echo '<td>' . $row['st_id'] . '</td>';
                                             echo '<td>' . $row['st_name'] . '</td>';
                                             echo '<td>' . $row['sb_name'] . '</td>';
-                                            // echo '<td>' . $row['sb_name'] . '</td>';
+                                            echo '<td>' . $row['ma_mini_test'] . '</td>';
                                             echo '<td>' . $row['ma_hour_test'] . '</td>';
                                             echo '<td>' . $row['ma_final_exam'] . '</td>';
                                             echo '<td>' . $row['ma_avarage'] . '</td>';
