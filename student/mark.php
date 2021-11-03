@@ -7,16 +7,16 @@ include "../config.php";
 <div class="col py-3">
     <main class="container-fluid" style="min-width: 759px;">
         <div class="d-flex justify-content-between bg-light ">
-            <h2 class="text-primary">Kết quả</h2>
+            <h2 class="text-primary mt-2">Kết quả</h2>
             <form method="post">
                 <div class="row">
-                    <div class="col-md-6 mt-1">
+                    <div class="col-md-6 mt-2">
                         <div class="container-1">
                             <!-- <span class="icon"><i class="fa fa-search"></i></span> -->
                             <input type="text" class="form-control" name="search-name" placeholder="Search name...">
                         </div>
                     </div>
-                    <div class="col-md-3 mt-1 mb-1">
+                    <div class="col-md-3 mt-2 mb-1">
                         <div class="form-group row ">
                             <div class="col-sm-10 m ">
                                 <button type="submit" name="btnsearch" class="btn btn-primary">Search</button>
@@ -95,11 +95,6 @@ include "../config.php";
                                         }
                                     }
                                 }
-                            
-                           
-                           
-
-                           
                             //* B4: đóng kết nối
                             mysqli_close($conn);
                             ?>
