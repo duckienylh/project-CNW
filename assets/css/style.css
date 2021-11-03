@@ -176,7 +176,7 @@ a {
     left: 0;
     padding: 1rem 1rem 0 0;
   }
-
+  
   .l-navbar.show {
     width: calc(var(--nav-width) + 156px);
   }
