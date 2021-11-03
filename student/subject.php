@@ -3,11 +3,25 @@ include './sidebarst.php';
 $id = $client_user['user_id'];
 ?>
 
+
 <div class="col py-3">
     <main class="container-fluid" style="min-width: 759px;">
         <div class="d-flex justify-content-between bg-light ">
             <h2 class="text-primary">Điểm học sinh</h2>
-
+            <?php
+            // * B1: mở kết nối
+            include '../config.php';
+            $sql1="SELECT*FROM  students 
+            WHERE st_id='$id'";
+            $result1 = mysqli_query($conn,$sql1);
+            if (mysqli_num_rows($result1) > 0) {
+                while ($row = mysqli_fetch_assoc($result1)) {
+            ?>
+                        <?php echo $row['st_name'] ?>
+                        <?php
+                }
+            }
+            ?>
         </div>
 
 
@@ -23,7 +37,7 @@ $id = $client_user['user_id'];
                         <th scope="col">Điểm KT 1 tiết</th>
                         <th scope="col">Điểm KT cuối kỳ</th>
                         <th scope="col">Điểm trung bình </th>
-                        
+
 
                     </tr>
                 </thead>
@@ -34,7 +48,8 @@ $id = $client_user['user_id'];
                             include '../config.php';
                             //* B2: Truy vấn
                             $sql = "SELECT b.sb_name ,t.ma_mini_test,t.ma_hour_test,t.ma_final_exam,t.ma_avarage 
-                            FROM marks t,subjects b WHERE t.sb_id=b.sb_id";
+                             FROM marks t, students st, subjects b
+                             WHERE t.st_id=st.st_id and b.sb_id=t.sb_id and st.st_id='$id' ";
 
                             //? lưu kết quả trả về $result
                             $result = mysqli_query($conn, $sql);

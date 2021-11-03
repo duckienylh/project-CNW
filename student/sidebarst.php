@@ -31,7 +31,7 @@ $client_user = $_SESSION['current_user'];
                     <a href="./student-index.php" class="nav_link "> <i class="fas fa-home "></i> <span
                             class="nav_name">Học Sinh</span> </a>
                     <a href="./subject.php" class="nav_link"> <i class="fas fa-book-open"></i> <span
-                            class="nav_name">Môn học</span> </a>
+                            class="nav_name">Điểm môn học</span> </a>
                     <a href="./mark.php" class="nav_link"> <i class="fas fa-marker"></i> <span
                             class="nav_name">Điểm</span> </a>
                     <a href="./class.php" class="nav_link"> <i class="fas fa-users"></i> <span

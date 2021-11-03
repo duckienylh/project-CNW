@@ -2,7 +2,6 @@
 include './sidebarst.php';
 $id = $client_user['user_id'];
 ?>
-
 <div class="col py-3">
     <main class="container-fluid" style="min-width: 759px;">
         <div class=" bg-light">
@@ -20,7 +19,9 @@ $id = $client_user['user_id'];
                     WHERE st.class_id=c.class_id and st.st_id='$id'";
                     $result1 = mysqli_query($conn,$sql1);
                     if (mysqli_num_rows($result1) > 0) {
+                       
                         while ($row = mysqli_fetch_assoc($result1)) {
+                            $class_id = $row['class_id'];
                     ?>
                     <?php echo $row['class_name']; ?>
                     <?php
@@ -52,8 +53,8 @@ $id = $client_user['user_id'];
                             include '../config.php';
                             //* B2: Truy vấn
                             $sql = "SELECT st.st_id,st.st_name,st.st_birth,st.st_address,st.st_gender,st.st_phone,st.st_parent 
-                            FROM students st,classes c,users u 
-                            WHERE st.class_id = c.class_id and st.st_id=u.user_id";
+                            FROM students st,classes c
+                            WHERE st.class_id = c.class_id  and st.class_id='$class_id' ";
 
                             //? lưu kết quả trả về $result
                             $result = mysqli_query($conn, $sql);
