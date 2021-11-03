@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['current_user'])) {
+        header("location:../index.php");
+}
+$client_user = $_SESSION['current_user'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
