@@ -6,9 +6,9 @@ $id = $client_user['user_id'];
     <main class="container-fluid" style="min-width: 759px;">
         <div class="d-flex justify-content-between bg-light ">
             <h2 class="text-primary">Điểm học sinh</h2>
-            <label class="control-label fw-bolder mt-2 "> 
+            <label class="control-label fw-bolder mt-2 ">
                 Tên HS:
-            <?php
+                <?php
             // * B1: mở kết nối
             include '../config.php';
             $sql1="SELECT*FROM  students 
@@ -17,8 +17,8 @@ $id = $client_user['user_id'];
             if (mysqli_num_rows($result1) > 0) {
                 while ($row = mysqli_fetch_assoc($result1)){
             ?>
-                    <?php echo $row['st_name'] ?>
-                    <?php
+                <?php echo $row['st_name'] ?>
+                <?php
                 }
             }
             ?>
@@ -62,7 +62,6 @@ $id = $client_user['user_id'];
                             //* B4: đóng kết nối
                             mysqli_close($conn);
                             ?>
-
                 </tbody>
             </table>
         </div>

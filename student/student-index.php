@@ -7,18 +7,18 @@ include './sidebarst.php';
 <div class="col py-3">
     <main class="container-fluid" style="min-width: 759px;">
         <div class="d-flex justify-content-between bg-light ">
-            <div class="col-md-6">
+            <div class="col-md-6 mt-1">
                 <h2 class="text-primary">Học Sinh</h2>
             </div>
             <form method="post">
                 <div class="row">
-                    <div class="col-md-6 mt-1">
+                    <div class="col-md-6 mt-2">
                         <div class="container-1">
                             <!-- <span class="icon"><i class="fa fa-search"></i></span> -->
                             <input type="text" class="form-control" name="search-idstudent" placeholder="Search ID...">
                         </div>
                     </div>
-                    <div class="col-md-3 mt-1 mb-1">
+                    <div class="col-md-3 mt-2 mb-1">
                         <div class="form-group row ">
                             <div class="col-sm-10 ">
                                 <button type="submit" name="btnsearch" class="btn btn-primary">Search</button>
