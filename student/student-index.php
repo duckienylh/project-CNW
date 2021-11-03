@@ -12,13 +12,13 @@ include './sidebarst.php';
             </div>
             <form method="post">
                 <div class="row">
-                    <div class="form-group row  mt-1 ">
+                    <div class="col-md-6 mt-1">
                         <div class="container-1">
                             <!-- <span class="icon"><i class="fa fa-search"></i></span> -->
-                            <input type="text" class="form-control" name="search-idstudent" placeholder="Search...">
+                            <input type="text" class="form-control" name="search-idstudent" placeholder="Search ID...">
                         </div>
                     </div>
-                    <div class="col-md-3 mt-1">
+                    <div class="col-md-3 mt-1 mb-1">
                         <div class="form-group row ">
                             <div class="col-sm-10 ">
                                 <button type="submit" name="btnsearch" class="btn btn-primary">Search</button>
