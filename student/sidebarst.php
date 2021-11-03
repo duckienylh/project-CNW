@@ -34,8 +34,8 @@ $client_user = $_SESSION['current_user'];
                             class="nav_name">Điểm môn học</span> </a>
                     <a href="./mark.php" class="nav_link"> <i class="fas fa-marker"></i> <span
                             class="nav_name">Điểm</span> </a>
-                    <a href="./class.php" class="nav_link"> <i class="fas fa-users"></i> <span
-                            class="nav_name">Lớp học</span> </a>
+                    <a href="./class.php" class="nav_link"> <i class="fas fa-users"></i> <span class="nav_name">Lớp
+                            học</span> </a>
                 </div>
             </div>
             <!-- <a href="#" class="nav_link"> <span class="nav_name">SignOut</span> </a> -->
@@ -47,12 +47,8 @@ $client_user = $_SESSION['current_user'];
                     <span class="d-none d-sm-inline mx-1 text-dark"> <?php echo $client_user['user_name']; ?></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-light text-small shadow">
-
-                    <li><a class="dropdown-item" href="#">Thông tin</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
+                    <li><a class="dropdown-item" href="../logout.php"><i class="fas fa-sign-out-alt me-3"></i> Thoát</a>
                     </li>
-                    <li><a class="dropdown-item" href="../logout.php">Thoát</a></li>
                 </ul>
             </div>
         </nav>
