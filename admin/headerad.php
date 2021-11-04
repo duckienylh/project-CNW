@@ -1,7 +1,7 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['current_user'])) {
-        header("location:../index.php");
+session_start();
+if (!isset($_SESSION['current_user'])) {
+    header("location:../index.php");
 }
 $client_user = $_SESSION['current_user'];
 ?>
@@ -59,9 +59,10 @@ $client_user = $_SESSION['current_user'];
                     <span class="d-none d-sm-inline mx-1"><?php echo $client_user['user_name']; ?></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-light shadow">
+                    <li><a class="dropdown-item nav_link" href="../change-password.php"><span class="nav_name">Đổi mật khẩu</span></a></li>
                     <li><a class="dropdown-item nav_link" href="../logout.php"><span class="nav_name">Thoát</span></a></li>
                 </ul>
             </div>
         </nav>
-        
+
     </div>

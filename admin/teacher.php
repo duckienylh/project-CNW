@@ -146,12 +146,12 @@ if (isset($_POST['btnSave'])) {
     $subjid = $_POST['subjid'];
     $username = $_POST['username'];
     $userpass = $_POST['userpass'];
-
+    $pass_hash = password_hash($userpass, PASSWORD_DEFAULT);
     $sql2 = "INSERT INTO `teachers`(`teach_id`, `teach_name`, `teach_email`, `teach_phone`, `teach_address`, `teach_gender`, `teach_birth`, `sb_id`)
     VALUES ('$teachid','$teachname','$teachemail','$teachphone','$teachaddress','$teachgender','$teachbirth','$subjid')";
    
     $sql3 = "INSERT INTO `users`(`user_id`, `user_name`, `user_email`, `user_password`, `user_level`) 
-    VALUES ('$teachid','$username','$teachemail','$userpass','1')";
+    VALUES ('$teachid','$username','$teachemail','$pass_hash','1')";
 
 
     $result2 = mysqli_query($conn, $sql3);
