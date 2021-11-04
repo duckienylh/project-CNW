@@ -146,7 +146,7 @@ if (isset($_POST['btnSave'])) {
     $subjid = $_POST['subjid'];
     $username = $_POST['username'];
     $userpass = $_POST['userpass'];
-    $pass_hash = md5($userpass);
+    $pass_hash = password_hash($userpass, PASSWORD_DEFAULT);
     $sql2 = "INSERT INTO `teachers`(`teach_id`, `teach_name`, `teach_email`, `teach_phone`, `teach_address`, `teach_gender`, `teach_birth`, `sb_id`)
     VALUES ('$teachid','$teachname','$teachemail','$teachphone','$teachaddress','$teachgender','$teachbirth','$subjid')";
    
