@@ -78,8 +78,9 @@ $client_user = $_SESSION['current_user'];
 </body>
 <!-- process change password -->
 <?php
-include 'config.php';
+
 if (isset($_POST['btnchange'])) {
+    include 'config.php';
     $userid = $_POST['userid'];
     $oldpass = $_POST['oldpass'];
     $newpass = $_POST['newpass'];
@@ -96,7 +97,11 @@ if (isset($_POST['btnchange'])) {
             $sql =  "UPDATE `users` SET `user_password`='$pass_hash2' WHERE `user_id` = '$userid' ";
             $result = mysqli_query($conn,$sql);
             if ($result > 0) {
-                header('Location:index.php');
+                ?>
+                <script>
+                   window.location.href = 'index.php';
+                </script>
+        <?php
             } else {
         ?>
                 <script>
