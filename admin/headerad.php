@@ -1,7 +1,7 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['current_user'])) {
-        header("location:../index.php");
+session_start();
+if (!isset($_SESSION['current_user'])) {
+    header("location:../index.php");
 }
 $client_user = $_SESSION['current_user'];
 ?>
@@ -15,7 +15,7 @@ $client_user = $_SESSION['current_user'];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>Quản Lý Học Sinh</title>
@@ -59,9 +59,13 @@ $client_user = $_SESSION['current_user'];
                     <span class="d-none d-sm-inline mx-1"><?php echo $client_user['user_name']; ?></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-light shadow">
+                    <li><a class="dropdown-item" href="#"><span class="nav_name"><i class="fas fa-lock me-3"></i>Đổi mật khẩu</span></a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
                     <li><a class="dropdown-item nav_link" href="../logout.php"><span class="nav_name">Thoát</span></a></li>
                 </ul>
             </div>
         </nav>
-        
+
     </div>
