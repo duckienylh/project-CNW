@@ -31,7 +31,7 @@ $id = $client_user['user_id'];
 
                                     if (mysqli_num_rows($result)) {
                                         while ($row = mysqli_fetch_assoc($result)) {
-                                            echo '<option value="' . $row['st_id'] . '">' . $row['st_email'] . '</option>';
+                                            echo '<option value="' . $row['st_email'] . '">' . $row['st_email'] . '</option>';
                                         }
                                     }
                                     ?>
@@ -106,7 +106,7 @@ $id = $client_user['user_id'];
                             <td><?php echo $row['st_name']; ?></td>
                             <td><?php echo $row['st_birth']; ?></td>
                             <td><?php echo $row['st_address']; ?></td>
-                            <td><?php echo $row['st_gender']; ?></td>
+                            <td><?php echo ($row['st_gender'] == 1 ? "Nam" : "Nữ"); ?></td>
                             <td><?php echo $row['st_phone']; ?></td>
                             <td><?php echo $row['st_parent']; ?></td>
                             <td><?php echo $row['st_email']; ?></td>
@@ -146,9 +146,9 @@ $id = $client_user['user_id'];
                         },
                         success: function(response) {
                             if (response == 'success') {
-                                alert("Đã gửi");
+                                console.log('Đã gửi')
                             } else if (response == 'error') {
-                                alert("Gửi không thành công");
+                                console.log("Gửi không thành công");
                             }
                         }
                     });

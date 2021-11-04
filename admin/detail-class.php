@@ -61,7 +61,10 @@ $id = $_GET['classid']
                                             </div>
                                             <div class="mb-3">
                                                 <label for="studentgender" class="form-label">Giới tính</label>
-                                                <input type="text" class="form-control" name="studentgender" id="studentgender" placeholder="">
+                                                <select class="form-control" id="studentgender" name="studentgender">
+                                                    <option value="1">Nam</option>
+                                                    <option value="0">Nữ</option>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="studentphone" class="form-label">Số điện thoại</label>
@@ -97,6 +100,7 @@ $id = $_GET['classid']
                             <th scope="col">Số điện thoại</th>
                             <th scope="col">Email</th>
                             <th scope="col">Phụ huynh</th>
+                            <th scope="col">Chức năng</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -114,10 +118,15 @@ $id = $_GET['classid']
                                     <td><?php echo $row['st_name']; ?></td>
                                     <td><?php echo $row['st_birth']; ?></td>
                                     <td><?php echo $row['st_address']; ?></td>
-                                    <td><?php echo $row['st_gender']; ?></td>
+                                    <td><?php echo ($row['st_gender'] == 1 ? "Nam" : "Nữ"); ?></td>
                                     <td><?php echo $row['st_phone']; ?></td>
                                     <td><?php echo $row['st_email']; ?></td>
                                     <td><?php echo $row['st_parent']; ?></td>
+                                    <td>
+                                        <a class="btn btn-warning" href="edit-student.php?id=<?php echo  $row['st_id'] ?>"><i class="fas fa-user-edit"></i></a>
+                                        <a class="btn btn-danger" href="process-delete-student.php?id=<?php echo  $row['st_id'] ?>"><i class="fas fa-user-slash"></i></a>
+                                    </td>
+                                </tr>
                                 </tr>
                         <?php
                             }
@@ -142,12 +151,12 @@ if (isset($_POST['btnSave'])) {
     $studentemail=$_POST['studentemail'];
     $username = $_POST['username'];
     $userpass = $_POST['userpass'];
-
+    $pass_hash =password_hash($userpass, PASSWORD_DEFAULT);
     $sql2 = "INSERT INTO `students`(`st_id`, `st_name`, `st_birth`, `st_address`, `st_gender`, `st_phone`, `st_parent`, `st_email`, `class_id`)
     VALUES ('$stid','$stname','$stbirth','$staddress','$stgender','$stphone','$stparent','$studentemail', '$id') ";
     
     $sql3 = "INSERT INTO `users`(`user_id`, `user_name`, `user_email`, `user_password`, `user_level`) 
-    VALUES ('$stid','$username',' $studentemail','$userpass','2')";
+    VALUES ('$stid','$username',' $studentemail','$pass_hash','2')";
 
     $result2 = mysqli_query($conn, $sql3);
     $result = mysqli_query($conn, $sql2);

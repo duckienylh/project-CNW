@@ -1,7 +1,7 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['current_user'])) {
-        header("location:../index.php");
+session_start();
+if (!isset($_SESSION['current_user'])) {
+    header("location:../index.php");
 }
 $client_user = $_SESSION['current_user'];
 ?>
@@ -53,19 +53,16 @@ $client_user = $_SESSION['current_user'];
                 </div>
             </div>
             <!-- <a href="#" class="nav_link"> <span class="nav_name">SignOut</span> </a> -->
-            <div class="dropdown pb-4 ps-3">
+            <div class="dropdown pb-4 ps-2">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="https://avatars.githubusercontent.com/u/90233548?s=400&u=2b4d5b064fad28a227f756af09b5ad9cfb4bb4a1&v=4" alt="hugenerd" class=" header_img rounded-circle">
-                    <span class="d-none d-sm-inline mx-1">Chương Đức</span>
+                    <span class="d-none d-sm-inline mx-1"><?php echo $client_user['user_name']; ?></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-light shadow">
-                    <li><a class="dropdown-item nav_link" href="#"> <span class="nav_name">Thông Tin Tài Khoản</span></a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
+                    <li><a class="dropdown-item nav_link" href="../change-password.php"><span class="nav_name">Đổi mật khẩu</span></a></li>
                     <li><a class="dropdown-item nav_link" href="../logout.php"><span class="nav_name">Thoát</span></a></li>
                 </ul>
             </div>
         </nav>
-        
+
     </div>

@@ -12,10 +12,10 @@ include './sidebar.php';
                     <!-- <th scope="col">STT</th> -->
                     <th scope="col">Mã giáo viên</th>
                     <th scope="col">Họ và Tên</th>
+                    <th scope="col">giới tính</th>
                     <th scope="col">email</th>
                     <th scope="col">số điện thoại</th>
                     <th scope="col">địa chỉ</th>
-                    <th scope="col">giới tính</th>
                     <th scope="col">ngày sinh</th>
                     <th scope="col">môn dạy</th>
 
@@ -34,10 +34,10 @@ include './sidebar.php';
                         <tr>
                             <th scope="row"><?php echo $row['teach_id']; ?> </th>
                             <td><?php echo $row['teach_name']; ?></td>
+                            <td><?php echo ($row['teach_gender'] == 1 ? "Nam" : "Nữ"); ?></td>
                             <td><?php echo $row['teach_email']; ?></td>
                             <td><?php echo $row['teach_phone']; ?></td>
                             <td><?php echo $row['teach_address']; ?></td>
-                            <td><?php echo $row['teach_gender']; ?></td>
                             <td><?php echo $row['teach_birth']; ?></td>
                             <td><?php echo $row['sb_name']; ?></td>
                             <!-- <td><a href="editEmployee.php?id=<?php //echo $row['emp_id']; 
