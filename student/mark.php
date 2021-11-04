@@ -30,7 +30,7 @@ include "../config.php";
         </div>
 
 
-        <div class="col-md-12" style="width:100% ; overflow: auto; height: auto">
+        <div class="col-md-12 portlet" style="width:100% ; overflow: auto; height: auto;">
 
             <table class="table table-primary table-hover table-bordered">
                 <thead class=" text while">

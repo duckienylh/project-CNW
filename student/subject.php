@@ -5,7 +5,7 @@ $id = $client_user['user_id'];
 <div class="col py-3">
     <main class="container-fluid" style="min-width: 759px;">
         <div class="d-flex justify-content-between bg-light ">
-            <h2 class="text-primary">Điểm học sinh</h2>
+            <h2 class="text-primary mt-1">Điểm học sinh</h2>
             <label class="control-label fw-bolder mt-2 ">
                 Tên HS:
                 <?php
@@ -24,7 +24,7 @@ $id = $client_user['user_id'];
             ?>
             </label>
         </div>
-        <div class="col-md-12" style="width:100% ; overflow: auto; height: auto ;">
+        <div class="col-md-12" style="width:100% ; overflow: auto; height: auto">
 
             <table class="table table-primary table-hover table-bordered">
                 <thead>
