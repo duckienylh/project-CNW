@@ -61,7 +61,10 @@ $id = $_GET['classid']
                                             </div>
                                             <div class="mb-3">
                                                 <label for="studentgender" class="form-label">Giới tính</label>
-                                                <input type="text" class="form-control" name="studentgender" id="studentgender" placeholder="">
+                                                <select class="form-control" id="studentgender" name="studentgender">
+                                                    <option value="1">Nam</option>
+                                                    <option value="0">Nữ</option>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="studentphone" class="form-label">Số điện thoại</label>
@@ -115,7 +118,7 @@ $id = $_GET['classid']
                                     <td><?php echo $row['st_name']; ?></td>
                                     <td><?php echo $row['st_birth']; ?></td>
                                     <td><?php echo $row['st_address']; ?></td>
-                                    <td><?php echo $row['st_gender']; ?></td>
+                                    <td><?php echo ($row['st_gender'] == 1 ? "Nam" : "Nữ"); ?></td>
                                     <td><?php echo $row['st_phone']; ?></td>
                                     <td><?php echo $row['st_email']; ?></td>
                                     <td><?php echo $row['st_parent']; ?></td>

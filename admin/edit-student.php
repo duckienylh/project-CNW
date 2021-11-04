@@ -14,7 +14,7 @@ $id = $_GET['id']
         $stemail = $row['st_email'];
         $stphone = $row['st_phone'];
         $staddress = $row['st_address'];
-        $stgender = $row['st_gender'];
+        $stgender =($row['st_gender'] == 1 ? "Nam" : "Nữ");
         $stbirth = $row['st_birth'];
         $stparent = $row['st_parent'];
         $classid = $row['class_id'];
@@ -25,7 +25,7 @@ $id = $_GET['id']
             <div class="container ">
                 <div class="row mt-3 pt-3  border-bottom border-light">
                     <div class="col-md-6">
-                        <h2>Sửa thông tin môn học</h2>
+                        <h2>Sửa thông tin học sinh</h2>
                     </div>
                 </div>
 
@@ -65,11 +65,28 @@ $id = $_GET['id']
                         <input type="date" class="form-control" name="stbirth" id="stbirth" value="<?php echo $stbirth ?>">
                     </div>
                     <div class="mb-3">
-                        <label for="classid" class="form-label">Mã lớp học</label>
-                        <input type="text" class="form-control" name="classid" id="classid" value="<?php echo $classid ?>">
+                        <label for="classid" class="form-label">Tên lớp học</label>
+                        <select class="form-control" id="classid" name="classid">
+                            <?php
+                            include '../config.php';
+                            $sql2= "SELECT * FROM classes, students where classes.class_id = students.class_id and students.st_id = $id";
+                            $sql = "SELECT * FROM  classes WHERE ";
+                            $result2 = mysqli_query($conn,$sql2);
+                            $clname = mysqli_fetch_assoc($result2);
+                            $result = mysqli_query($conn, $sql);
+
+                            if (mysqli_num_rows($result)) {
+                                echo '<option value="' . $clname['class_id'] . '">' . $clname['class_name'] . '</option>';;
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo '<option value="' . $row['class_id'] . '">' . $row['class_name'] . '</option>';
+                                }
+                            }
+                            ?>
+
+                        </select>
                     </div>
                     <div class="text-center">
-                        <a class="btn btn-success" href="teacher.php">Hủy</a>
+                        <a class="btn btn-success" href="class.php">Hủy</a>
                         <button type="submit" class="btn btn-primary" name="btnSave">Thay Đổi</button>
                     </div>
 
