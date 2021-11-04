@@ -65,7 +65,7 @@ $id = $client_user['user_id'];
                         echo '<td>' . $row['st_name'] . '</td>';
                         echo '<td>' . $row['st_birth'] . '</td>';
                         echo '<td>' . $row['st_address'] . '</td>';
-                        echo '<td>' . $row['st_gender'] . '</td>';
+                        echo '<td>' . ($row['st_gender'] == 1 ? "Nam" : "Nữ") . '</td>';
                         echo '<td>' . $row['st_phone'] . '</td>';
                         echo '<td>' . $row['st_parent'] . '</td>';
                         echo '</tr>';

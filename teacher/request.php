@@ -67,7 +67,7 @@ $class_id = $_GET['class_id'];
                             <th scope="row"><?php echo $row['st_id']; ?> </th>
                             <td><?php echo $row['st_name']; ?></td>
                             <td><?php echo $row['st_birth']; ?></td>
-                            <td><?php echo $row['st_gender']; ?></td>
+                            <td><?php echo ($row['st_gender'] == 1 ? "Nam" : "Nữ"); ?></td>
                             <td><?php echo $row['ma_mini_test']; ?></td>
                             <td><?php echo $row['ma_hour_test']; ?></td>
                             <td><?php echo $row['ma_final_exam']; ?></td>
