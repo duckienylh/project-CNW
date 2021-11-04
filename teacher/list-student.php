@@ -106,7 +106,7 @@ $id = $client_user['user_id'];
                             <td><?php echo $row['st_name']; ?></td>
                             <td><?php echo $row['st_birth']; ?></td>
                             <td><?php echo $row['st_address']; ?></td>
-                            <td><?php echo $row['st_gender']; ?></td>
+                            <td><?php echo ($row['st_gender'] == 1 ? "Nam" : "Nữ"); ?></td>
                             <td><?php echo $row['st_phone']; ?></td>
                             <td><?php echo $row['st_parent']; ?></td>
                             <td><?php echo $row['st_email']; ?></td>
