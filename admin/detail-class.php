@@ -97,6 +97,7 @@ $id = $_GET['classid']
                             <th scope="col">Số điện thoại</th>
                             <th scope="col">Email</th>
                             <th scope="col">Phụ huynh</th>
+                            <th scope="col">Chức năng</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -118,6 +119,11 @@ $id = $_GET['classid']
                                     <td><?php echo $row['st_phone']; ?></td>
                                     <td><?php echo $row['st_email']; ?></td>
                                     <td><?php echo $row['st_parent']; ?></td>
+                                    <td>
+                                        <a class="btn btn-warning" href="edit-student.php?id=<?php echo  $row['st_id'] ?>"><i class="fas fa-user-edit"></i></a>
+                                        <a class="btn btn-danger" href="process-delete-student.php?id=<?php echo  $row['st_id'] ?>"><i class="fas fa-user-slash"></i></a>
+                                    </td>
+                                </tr>
                                 </tr>
                         <?php
                             }
