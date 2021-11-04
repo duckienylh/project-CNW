@@ -14,7 +14,7 @@ $id = $_GET['id']
         $teachemail = $row['teach_email'];
         $teachphone = $row['teach_phone'];
         $teachaddress = $row['teach_address'];
-        $teachgender = $row['teach_gender'];
+        $teachgender = ($row['teach_gender'] == 1 ? "Nam" : "Nữ");
         $teachbirth = $row['teach_birth'];
         $subjectid = $row['sb_id'];
     }
@@ -60,8 +60,21 @@ $id = $_GET['id']
                         <input type="date" class="form-control" name="teachbirth" id="teachbirth" value="<?php echo $teachbirth ?>">
                     </div>
                     <div class="mb-3">
-                        <label for="subjectid" class="form-label">Mã Môn học</label>
-                        <input type="text" class="form-control" name="subjectid" id="subjectid" value="<?php echo $subjectid ?>">
+                        <label for="subjectid" class="form-label">Tên môn học</label>
+                        <select class="form-control" id="subjectid" name="subjectid">
+                            <?php
+                            include '../config.php';
+                            $sql = "SELECT * FROM  subjects";
+                            $result = mysqli_query($conn, $sql);
+
+                            if (mysqli_num_rows($result)) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo '<option value="' . $row['sb_id'] . '">' . $row['sb_name'] . '</option>';
+                                }
+                            }
+                            ?>
+
+                        </select>
                     </div>
                     <div class="text-center">
                         <a class="btn btn-success" href="teacher.php">Hủy</a>
