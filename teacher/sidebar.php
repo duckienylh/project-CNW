@@ -39,7 +39,7 @@ $client_user = $_SESSION['current_user'];
                     <span class="d-none d-sm-inline mx-1 text-dark"> <?php echo $client_user['user_name']; ?></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-light text-small shadow">
-                    <li><a class="dropdown-item" href="../change-password.php"><span class="nav_name"><i class="fas fa-lock me-3"></i> Đổi mật khẩu</span></a></li>
+                    <li><a class="dropdown-item" href=""><span class="nav_name"><i class="fas fa-lock me-3"></i> Đổi mật khẩu</span></a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
