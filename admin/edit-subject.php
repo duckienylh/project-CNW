@@ -5,7 +5,7 @@ $id = $_GET['id']
 ?>
 <main>
     <?php
-        $sql = "SELECT * FROM subjects WHERE sb_id = $id";
+        $sql = "SELECT * FROM subjects WHERE sb_id = '$id'";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
 

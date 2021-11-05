@@ -69,7 +69,7 @@ include 'headerad.php';
                         <?php
                         include '../config.php';
                         $sql = "SELECT  cl.class_id, cl.class_name, t.teach_name FROM classes cl, teachers t 
-                            WHERE cl.teach_id = t.teach_id";
+                        WHERE cl.teach_id = t.teach_id";
                         $result = mysqli_query($conn, $sql);
 
                         if (mysqli_num_rows($result) > 0) {
