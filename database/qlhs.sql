@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 05, 2021 lúc 11:45 AM
--- Phiên bản máy phục vụ: 10.4.21-MariaDB
--- Phiên bản PHP: 8.0.10
+-- Host: 127.0.0.1
+-- Generation Time: Nov 05, 2021 at 12:40 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `qlhs`
+-- Database: `qlhs`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `classes`
+-- Table structure for table `classes`
 --
 
 CREATE TABLE `classes` (
@@ -34,7 +34,7 @@ CREATE TABLE `classes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `classes`
+-- Dumping data for table `classes`
 --
 
 INSERT INTO `classes` (`class_id`, `class_name`, `teach_id`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `classes` (`class_id`, `class_name`, `teach_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `marks`
+-- Table structure for table `marks`
 --
 
 CREATE TABLE `marks` (
@@ -58,7 +58,7 @@ CREATE TABLE `marks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `marks`
+-- Dumping data for table `marks`
 --
 
 INSERT INTO `marks` (`st_id`, `sb_id`, `ma_mini_test`, `ma_hour_test`, `ma_final_exam`, `ma_avarage`) VALUES
@@ -111,7 +111,7 @@ INSERT INTO `marks` (`st_id`, `sb_id`, `ma_mini_test`, `ma_hour_test`, `ma_final
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `students`
+-- Table structure for table `students`
 --
 
 CREATE TABLE `students` (
@@ -127,7 +127,7 @@ CREATE TABLE `students` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `students`
+-- Dumping data for table `students`
 --
 
 INSERT INTO `students` (`st_id`, `st_name`, `st_birth`, `st_address`, `st_gender`, `st_phone`, `st_email`, `st_parent`, `class_id`) VALUES
@@ -144,7 +144,7 @@ INSERT INTO `students` (`st_id`, `st_name`, `st_birth`, `st_address`, `st_gender
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `subjects`
+-- Table structure for table `subjects`
 --
 
 CREATE TABLE `subjects` (
@@ -153,7 +153,7 @@ CREATE TABLE `subjects` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `subjects`
+-- Dumping data for table `subjects`
 --
 
 INSERT INTO `subjects` (`sb_id`, `sb_name`) VALUES
@@ -166,7 +166,33 @@ INSERT INTO `subjects` (`sb_id`, `sb_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `teachers`
+-- Table structure for table `tbl_comment`
+--
+
+CREATE TABLE `tbl_comment` (
+  `comment_id` int(11) NOT NULL,
+  `parent_comment_id` int(11) DEFAULT NULL,
+  `comment` varchar(200) NOT NULL,
+  `comment_sender_name` varchar(40) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_comment`
+--
+
+INSERT INTO `tbl_comment` (`comment_id`, `parent_comment_id`, `comment`, `comment_sender_name`, `date`) VALUES
+(27, 0, '  hi kien', 'Nguyễn Thị Lý', '2021-11-05 05:34:32'),
+(28, 0, '  mình cũng hi kiên', 'Nguyễn Thị Hòa', '2021-11-05 05:35:06'),
+(29, 27, ' hi nhóm mình nhé', 'Nguyễn Thị Hòa', '2021-11-05 05:35:26'),
+(30, 0, '  hello nhóm 6 nhé\r\n', 'Nguyễn Thị Mai Lan', '2021-11-05 05:38:11'),
+(31, 0, '  ừ thì hello kien', 'Nguyễn Thị Lý', '2021-11-05 05:39:32'),
+(32, 0, '  =))\r\n', 'Nguyễn Thị Lý', '2021-11-05 05:39:41');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teachers`
 --
 
 CREATE TABLE `teachers` (
@@ -181,7 +207,7 @@ CREATE TABLE `teachers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `teachers`
+-- Dumping data for table `teachers`
 --
 
 INSERT INTO `teachers` (`teach_id`, `teach_name`, `teach_email`, `teach_phone`, `teach_address`, `teach_gender`, `teach_birth`, `sb_id`) VALUES
@@ -195,7 +221,7 @@ INSERT INTO `teachers` (`teach_id`, `teach_name`, `teach_email`, `teach_phone`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -208,7 +234,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `account`, `user_email`, `user_password`, `user_level`) VALUES
@@ -230,74 +256,90 @@ INSERT INTO `users` (`user_id`, `user_name`, `account`, `user_email`, `user_pass
 ('SV09', 'Ngô Đức Tâm', 'ngoductam', 'nguyenlongduc@gmail.com', '$2y$10$Z0JQ3YZSwQbJ1edJZ/THU.dVkTSi.rjXBd6n1JnF7WFMh6jhD93rW', 2);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `classes`
+-- Indexes for table `classes`
 --
 ALTER TABLE `classes`
   ADD PRIMARY KEY (`class_id`),
   ADD KEY `teach_key` (`teach_id`);
 
 --
--- Chỉ mục cho bảng `marks`
+-- Indexes for table `marks`
 --
 ALTER TABLE `marks`
   ADD KEY `sb2_key` (`sb_id`),
   ADD KEY `st_key` (`st_id`);
 
 --
--- Chỉ mục cho bảng `students`
+-- Indexes for table `students`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`st_id`),
   ADD KEY `L_key` (`class_id`);
 
 --
--- Chỉ mục cho bảng `subjects`
+-- Indexes for table `subjects`
 --
 ALTER TABLE `subjects`
   ADD PRIMARY KEY (`sb_id`);
 
 --
--- Chỉ mục cho bảng `teachers`
+-- Indexes for table `tbl_comment`
+--
+ALTER TABLE `tbl_comment`
+  ADD PRIMARY KEY (`comment_id`);
+
+--
+-- Indexes for table `teachers`
 --
 ALTER TABLE `teachers`
   ADD PRIMARY KEY (`teach_id`),
   ADD KEY `sb_key` (`sb_id`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `classes`
+-- AUTO_INCREMENT for table `tbl_comment`
+--
+ALTER TABLE `tbl_comment`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `classes`
 --
 ALTER TABLE `classes`
   ADD CONSTRAINT `teach_key` FOREIGN KEY (`teach_id`) REFERENCES `teachers` (`teach_id`);
 
 --
--- Các ràng buộc cho bảng `marks`
+-- Constraints for table `marks`
 --
 ALTER TABLE `marks`
   ADD CONSTRAINT `sb2_key` FOREIGN KEY (`sb_id`) REFERENCES `subjects` (`sb_id`),
   ADD CONSTRAINT `st_key` FOREIGN KEY (`st_id`) REFERENCES `students` (`st_id`);
 
 --
--- Các ràng buộc cho bảng `students`
+-- Constraints for table `students`
 --
 ALTER TABLE `students`
   ADD CONSTRAINT `L_key` FOREIGN KEY (`class_id`) REFERENCES `classes` (`class_id`);
 
 --
--- Các ràng buộc cho bảng `teachers`
+-- Constraints for table `teachers`
 --
 ALTER TABLE `teachers`
   ADD CONSTRAINT `sb_key` FOREIGN KEY (`sb_id`) REFERENCES `subjects` (`sb_id`);

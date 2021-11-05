@@ -29,7 +29,7 @@ $client_user = $_SESSION['current_user'];
                     <a href="./list-teacher.php" class="nav_link "> <i class="fas fa-school "></i> <span class="nav_name">Home</span> </a>
                     <a href="./list-student.php" class="nav_link"> <i class="fas fa-users "></i> <span class="nav_name">lớp học</span> </a>
                     <a href="./mark.php" class="nav_link"> <i class="fas fa-keyboard "></i> <span class="nav_name">nhập điểm</span> </a>
-                    <a href="./index-message.php?user_name=<?php echo $client_user['user_name']?>" class="nav_link"> <i class="fas fa-user-graduate "></i> <span class="nav_name">liên hệ</span> </a>
+                    <a href="./index-message.php?user_name=<?php echo $client_user['user_name']?>" class="nav_link"> <i class="fas fa-user-graduate "></i> <span class="nav_name">Tương tác</span> </a>
                 </div>
             </div>
             <!-- <a href="#" class="nav_link"> <span class="nav_name">SignOut</span> </a> -->
