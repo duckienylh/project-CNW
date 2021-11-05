@@ -100,7 +100,7 @@ if (isset($_POST['btnchange'])) {
             $row = mysqli_fetch_assoc($resultcheck);
             $pass_hashed = $row['user_password'];
             if (password_verify($oldpass, $pass_hashed)) {
-                $sql =  "UPDATE users SET user_password`='$pass_hash2' WHERE user_id` = '$userid' ";
+                $sql =  "UPDATE `users` SET `user_password`='$pass_hash2' WHERE `user_id` = '$userid' ";
                 $result = mysqli_query($conn, $sql);
                 ?>
                 <script>
