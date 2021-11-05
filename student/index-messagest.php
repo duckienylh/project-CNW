@@ -1,6 +1,6 @@
 
 <?php
-include '../teacher/sidebar.php';
+include './sidebarst.php';
 include "../config.php";
 $id = $client_user['user_id'];
 $user_name = $_GET['user_name'];
@@ -98,7 +98,7 @@ $user_name = $_GET['user_name'];
             <textarea class="input-field" type="text" name="comment" id="comment" placeholder="Add a Comment">  </textarea>
         </div>
         <div>
-            <input type="button" class="btn-submit" id="submitButton" value="Publish" />
+            <input type="button" class="btn-submit" id="submitButton" value="Gửi" />
             <div id="comment-message">Gửi tin nhắn thành công!</div>
         </div>
     </form>
