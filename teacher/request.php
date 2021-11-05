@@ -58,7 +58,7 @@ $class_id = $_GET['class_id'];
 
 
                 $sql = "SELECT * FROM students st,subjects s,marks m,teachers t, classes c
-                        WHERE st.st_id = m.st_id and s.sb_id = m.sb_id and t.teach_id = '$id' and t.sb_id = s.sb_id and c.class_id = '$class_id'";
+                        WHERE st.st_id = m.st_id and s.sb_id = m.sb_id and t.teach_id = '$id' and t.sb_id = s.sb_id and st.class_id = '$class_id' GROUP by st.st_id ";
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {

@@ -8,12 +8,13 @@ $sb_id = $_GET['sb_id'];
 <main class="container">
     <h2>cập nhật điểm học sinh</h2>
     <?php
-    $sql = "SELECT * FROM students st, subjects sb, marks m WHERE st.st_id = '$st_id'and sb.sb_id = '$sb_id' and st.st_id = m.st_id";
+    $sql = "SELECT * FROM students st, subjects sb, marks m WHERE st.st_id = '$st_id'and sb.sb_id = '$sb_id' and st.st_id = m.st_id GROUP BY st.st_id";
 
 
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
+            echo  $row['sb_name'];
     ?>
             <form method="post">
                 <div class="form-group row">
