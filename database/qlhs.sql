@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 04, 2021 lúc 05:26 PM
+-- Thời gian đã tạo: Th10 05, 2021 lúc 11:45 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -30,14 +30,14 @@ SET time_zone = "+00:00";
 CREATE TABLE `classes` (
   `class_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `class_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `teacher_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
+  `teach_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `classes`
 --
 
-INSERT INTO `classes` (`class_id`, `class_name`, `teacher_id`) VALUES
+INSERT INTO `classes` (`class_id`, `class_name`, `teach_id`) VALUES
 (' L01', '11A2', 'GV01'),
 (' L02', '11A4', 'GV06'),
 (' L03', '11A10', 'GV04');
@@ -133,7 +133,7 @@ CREATE TABLE `students` (
 INSERT INTO `students` (`st_id`, `st_name`, `st_birth`, `st_address`, `st_gender`, `st_phone`, `st_email`, `st_parent`, `class_id`) VALUES
 ('SV01', 'Nguyễn Thị Phú', '2005-11-18', 'Hà Nội', 0, '0916211456', 'nguyenvanduy@gmail.com', 'Nguyễn Văn Duy', ' L01'),
 ('SV02', 'Nguyễn Thị  Yến Nhi', '2005-11-05', 'Hà Nội', 0, '0916200456', 'nguyenvandung@gmail.com', 'Nguyễn Văn Dũng', ' L01'),
-('SV03', 'Nguyễn Văn Phong', '2005-01-07', 'Hà Nội', 1, '0916211421', 'nguyenthily@gmail.com', 'Nguyễn Thị Ly', ' L01'),
+('SV03', 'Nguyễn Văn Phong', '2005-01-07', 'Hà Nội', 0, '0916211421', 'nguyenvanphong@gmail.com', 'Nguyễn Thị Ly', ' L01'),
 ('SV04', 'Nguyễn Hồng Hà', '2005-11-16', 'Hà Nam', 1, '0916244456', 'nguyenvanduy@gmail.com', 'Nguyễn Anh Lam', ' L02'),
 ('SV05', 'Nguyễn Thị Mai Lan', '2005-01-07', 'Hà Nội', 0, ' 0923211456', 'nguyenuoc@gmail.com', 'Nguyễn Thị Ước', ' L02'),
 ('SV06', 'Nguyễn Văn Phú', '2005-12-15', 'Hà Nội', 1, ' 0916222125', 'nguyenkhuongduy@gmail.com', 'Nguyễn Khương Duy', ' L02'),
@@ -190,7 +190,7 @@ INSERT INTO `teachers` (`teach_id`, `teach_name`, `teach_email`, `teach_phone`, 
 ('GV03', 'Nguyễn Thị Lý', 'nguyenly@gmail.com', '0456948900', 'Lào Cai', 0, '1989-06-19', 'SB03'),
 ('GV04', 'Nguyễn Văn Hưng', 'hưngvan@gmail.com', '0789912489', 'Bắc Ninh', 1, '1974-09-16', 'SB04'),
 ('GV05', 'Trần Tuấn Đức', 'trantuanduc@gmail.com', '0986912111', 'Hà Giang', 1, '1979-01-11', 'SB05'),
-('GV06', 'Nguyễn Văn Đúng', 'Dungnguyenvan@gmail.com', '0454512480', 'Bắc Giang', 1, '1984-05-12', 'SB04');
+('GV06', 'Nguyễn Văn Đúng', 'Dungnguyenvan@gmail.com', '0454512480', 'Hà Nam', 0, '1984-05-12', 'SB01');
 
 -- --------------------------------------------------------
 
@@ -203,7 +203,7 @@ CREATE TABLE `users` (
   `user_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `account` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `user_email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `user_password` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `user_password` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `user_level` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -212,22 +212,22 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `account`, `user_email`, `user_password`, `user_level`) VALUES
-('1', 'Kiên trưởng nhóm', 'admin', '123hp@gmail.com', '123', 0),
-('GV01', 'Nguyễn Thị Hòa', 'nguyenthihoa', 'hoathi@gmail.com', '123', 1),
-('GV02', 'Lê Thị Hồng', 'lethihong', 'hongg@gmail.com', '123', 1),
-('GV03', 'Nguyễn Thị Lý', 'nguyenthily', 'nguyenly@gmail.com', '123', 1),
-('GV04', 'Nguyễn Văn Hưng', 'hungnguyenvan', 'hưngvan@gmail.com', '123', 1),
-('GV05', 'Trần Tuấn Đức', 'trantuanduc', 'trantuanduc@gmail.com', '123', 1),
-('GV06', 'Nguyễn Văn Đúng', 'dungnguyenvan', 'Dungnguyenvan@gmail.com', '123', 1),
-('SV01', 'Nguyễn Thị Phú', 'nguyenthiphu', 'nguyenvanduy@gmail.com', '123', 2),
-('SV02', 'Nguyễn Thị  Yến Nhi', 'nguyenthiyennhi', 'nguyenvandung@gmail.com', '123', 2),
-('SV03', 'Nguyễn Văn Phong', 'nguyenvanphong', 'nguyenthily@gmail.com', '123', 2),
-('SV04', 'Nguyễn Hồng Hà', 'nguyenthiha', 'nguyenvanduy@gmail.com', '123', 2),
-('SV05', 'Nguyễn Thị Mai Lan', 'nguyenthimailan', 'nguyenuoc@gmail.com', '123', 2),
-('SV06', 'Nguyễn Văn Phú', 'nguyenvanphu', 'nguyenkhuongduy@gmail.com', '123', 2),
-('SV07', 'Nguyễn Đức Kiên', 'nguyenduckien', 'nguyenvanduc@gmail.com', '123', 2),
-('SV08', 'Nguyễn Văn Dương', 'nguyenvanduong', 'nguyengiapduc@gmail.com', '123', 2),
-('SV09', 'Ngô Đức Tâm', 'ngoductam', 'nguyenlongduc@gmail.com', '123', 2);
+('1', 'Kiên trưởng nhóm', 'admin', '123hp@gmail.com', '$2y$10$keXolp5Zm/FcJQEeTy0eDuoZnSw.sZ89Xy6IoZ5LrYXbsZDe7MSEy', 0),
+('GV01', 'Nguyễn Thị Hòa', 'nguyenthihoa', 'hoathi@gmail.com', '$2y$10$mJV7PiJBt7lx4sXIgIzk7.5tLSY8rVRgi0o9cDFVSWdJ480Vq.yf2', 1),
+('GV02', 'Lê Thị Hồng', 'lethihong', 'hongg@gmail.com', '$2y$10$f6FhkXiF59fLWRFZvxvVouqaOt57cmkNPgJAJiJez3/JONm9agbAS', 1),
+('GV03', 'Nguyễn Thị Lý', 'nguyenthily', 'nguyenly@gmail.com', '$2y$10$vZsdW8rZabf8Se2bd2NpNugNtn7RjVGc5arnAPMs7UhWiro8fioaW', 1),
+('GV04', 'Nguyễn Văn Hưng', 'hungnguyenvan', 'hưngvan@gmail.com', '$2y$10$F0IlCtPT.QSc11weWgFnUerUTaY9KZw0YfT.TS584sxUytTqmnsoK', 1),
+('GV05', 'Trần Tuấn Đức', 'trantuanduc', 'trantuanduc@gmail.com', '$2y$10$yc/1Xfeklb0TnIktK8UzLexyeQwj1WvMv5ofT9a38dSuapH7PcAIq', 1),
+('GV06', 'Nguyễn Văn Đúng', 'dungnguyenvan', 'Dungnguyenvan@gmail.com', '$2y$10$rYpc1zq/WXopfZ0sYwyGterHVIC1mtqow8gkNCy4ZDVRg79vo6oMy', 1),
+('SV01', 'Nguyễn Thị Phú', 'nguyenthiphu', 'nguyenvanduy@gmail.com', '$2y$10$.wYlS5pKSVdSIKZW52onKuPPbu106RGQJgj4qjQpyguUB4vnYRCQi', 2),
+('SV02', 'Nguyễn Thị  Yến Nhi', 'nguyenthiyennhi', 'nguyenvandung@gmail.com', '$2y$10$IhrlBTxpJb0vBpQnRd0QdOYTrmIO73JfMltaen1HahxyNps543NhS', 2),
+('SV03', 'Nguyễn Văn Phong', 'nguyenvanphong', 'nguyenthily@gmail.com', '$2y$10$csgF42EtGlr17MzXucfdkuVxHKqzhDk.RWQb0Z3nzFEhp9I1vWrK.', 2),
+('SV04', 'Nguyễn Hồng Hà', 'nguyenthiha', 'nguyenvanduy@gmail.com', '$2y$10$kjGswy6epKm.p2PvCZMireoR76F9EGAlVMfFSnWHOuSDO6Q3Zzoqq', 2),
+('SV05', 'Nguyễn Thị Mai Lan', 'nguyenthimailan', 'nguyenuoc@gmail.com', '$2y$10$yYvDeke41G8aN2C7EFVrc.r8f8e2601lEDYiC.VQ4C1XPJjYZ7P.W', 2),
+('SV06', 'Nguyễn Văn Phú', 'nguyenvanphu', 'nguyenkhuongduy@gmail.com', '$2y$10$BM/jFuSr.4Oa5sZvY8lyC.6JCeQb4trfZfE1NfCBjjmoiNe4CqOeu', 2),
+('SV07', 'Nguyễn Đức Kiên', 'nguyenduckien', 'nguyenvanduc@gmail.com', '$2y$10$Ci7n37h1bv73gN6gTfKWPOAJcFpItzXj5u5EqDr0tCLkENWo4R086', 2),
+('SV08', 'Nguyễn Văn Dương', 'nguyenvanduong', 'nguyengiapduc@gmail.com', '$2y$10$b4JEctofe4cwgzOvlfzkT.evBSrQioa3LoCwhqSaNfKVbUKqehEjK', 2),
+('SV09', 'Ngô Đức Tâm', 'ngoductam', 'nguyenlongduc@gmail.com', '$2y$10$Z0JQ3YZSwQbJ1edJZ/THU.dVkTSi.rjXBd6n1JnF7WFMh6jhD93rW', 2);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -238,7 +238,7 @@ INSERT INTO `users` (`user_id`, `user_name`, `account`, `user_email`, `user_pass
 --
 ALTER TABLE `classes`
   ADD PRIMARY KEY (`class_id`),
-  ADD KEY `teach_key` (`teacher_id`);
+  ADD KEY `teach_key` (`teach_id`);
 
 --
 -- Chỉ mục cho bảng `marks`
@@ -281,7 +281,7 @@ ALTER TABLE `users`
 -- Các ràng buộc cho bảng `classes`
 --
 ALTER TABLE `classes`
-  ADD CONSTRAINT `teach_key` FOREIGN KEY (`teacher_id`) REFERENCES `teachers` (`teach_id`);
+  ADD CONSTRAINT `teach_key` FOREIGN KEY (`teach_id`) REFERENCES `teachers` (`teach_id`);
 
 --
 -- Các ràng buộc cho bảng `marks`
