@@ -5,7 +5,7 @@ $id = $_GET['id']
 ?>
 <main>
     <?php
-    $sql = "SELECT * FROM students st, classes cl WHERE st.st_id = $id AND st.class_id = cl.class_id ";
+    $sql = "SELECT * FROM `classes`,`students` WHERE classes.class_id =students.class_id AND students.st_id= '$id' ";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
 
@@ -69,14 +69,14 @@ $id = $_GET['id']
                         <select class="form-control" id="classid" name="classid">
                             <?php
                             include '../config.php';
-                            $sql2= "SELECT * FROM classes, students where classes.class_id = students.class_id and students.st_id = $id";
-                            $sql = "SELECT * FROM  classes WHERE ";
+                            $sql2= "SELECT * FROM classes, students where classes.class_id = students.class_id and students.st_id = '$id'";
+                            $sql = "SELECT * FROM  classes";
                             $result2 = mysqli_query($conn,$sql2);
                             $clname = mysqli_fetch_assoc($result2);
                             $result = mysqli_query($conn, $sql);
 
                             if (mysqli_num_rows($result)) {
-                                echo '<option value="' . $clname['class_id'] . '">' . $clname['class_name'] . '</option>';;
+                                echo '<option value="' . $clname['class_id'] . '">' . $clname['class_name'] . '</option>';
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo '<option value="' . $row['class_id'] . '">' . $row['class_name'] . '</option>';
                                 }
