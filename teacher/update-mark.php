@@ -48,7 +48,7 @@ $sb_id = $_GET['sb_id'];
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
-                        <button type="submit" name="btnupdate" class="btn btn-success">Thêm</button>
+                        <button type="submit" name="btnupdate" class="btn btn-success">Cập nhật</button>
                         <a href="mark.php"><button type="" name="btnupdate" class="btn btn-success">quay lại</button></a>
                     </div>
                 </div>
