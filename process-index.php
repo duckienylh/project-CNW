@@ -5,7 +5,7 @@ include 'config.php';
 $username = $_POST['userName'];
 $password = $_POST['password'];
 
-$sql = "SELECT * FROM users WHERE user_name = '$username'"; //câu lệnh sql kiểm tra người dùng tồn tại hay ko
+$sql = "SELECT * FROM users WHERE account = '$username'"; //câu lệnh sql kiểm tra người dùng tồn tại hay ko
 $result = mysqli_query($conn, $sql);
 $user = mysqli_fetch_assoc($result);
 if (mysqli_num_rows($result) > 0) { // vòng if kiểm tra câu lệnh truy vấn
