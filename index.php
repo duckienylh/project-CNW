@@ -30,7 +30,7 @@
 
 <body>
     <?php
-    session_start(); // bắt đầu session cho người đăng nhập
+    session_start(); // bắt đầu cho người đăng nhập
     if (empty($_SESSION['current_user'])) {
     ?>
         <section class="vh-100 bg-image" style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/search-box/img4.jpg');">
@@ -72,7 +72,7 @@
             header('location:student/student-index.php');
         }
 }
-    // tạm thời head đến trang index cơ bản vì lv người dùng trong db = 0 và chưa phân chia form rõ ràng bên phân quyền
+    
  
     ?>
 
