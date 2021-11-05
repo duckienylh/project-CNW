@@ -6,7 +6,7 @@ $sbid = $_GET['sbid'];
 ?>
 <main>
     <?php
-    $sql = "SELECT * FROM marks m, subjects sb, students st WHERE st.st_id = $stid AND sb.sb_id = $sbid and  m.st_id=st.st_id and m.sb_id=sb.sb_id ";
+    $sql = "SELECT * FROM marks m, subjects sb, students st WHERE st.st_id = '$stid' AND sb.sb_id = '$sbid' and  m.st_id=st.st_id and m.sb_id=sb.sb_id ";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
 

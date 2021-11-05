@@ -9,11 +9,11 @@ $sql = "SELECT * FROM users WHERE account = '$username'"; //câu lệnh sql ki�
 $result = mysqli_query($conn, $sql);
 $user = mysqli_fetch_assoc($result);
 if (mysqli_num_rows($result) > 0) { // vòng if kiểm tra câu lệnh truy vấn
-    // $password_hashed = $row['user_pass']; // lấy password hash ở trên db
-    // if (password_verify($password, $password_hashed)) { // kiểm tra password nhập vào từ form so với mật khẩu đã lấy trên db
+    $password_hash = $user['user_password']; // lấy password hash ở trên db
+    if (password_verify($password, $password_hash)) { // kiểm tra password nhập vào từ form so với mật khẩu đã lấy trên db
 
         
-        if ($user['user_password'] == $password) { // Kiểm tra tài khoản xác thực
+        // if ($user['user_password'] == $password) { // Kiểm tra tài khoản xác thực
             $_SESSION['current_user'] = $user;
             if($user['user_level'] == 0){
                 echo json_encode(array(
@@ -42,7 +42,8 @@ if (mysqli_num_rows($result) > 0) { // vòng if kiểm tra câu lệnh truy vấ
                 'status' => 0,
                 'message' => 'Sai mật khẩu'
             ));
-        }
+        // }
+    }
 } else {
     echo json_encode(array(
         'status' => 0,

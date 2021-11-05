@@ -16,7 +16,8 @@ $id = $client_user['user_id'];
         <div class="me-3 ms-1">
             
                 <?php
-                $sql3 = "SELECT * FROM teachers t, students st, classes c WHERE t.teach_id = '$id' AND st.class_id = c.class_id AND t.teach_id = c.teach_id";
+                
+                $sql3 = "SELECT * FROM teachers t, students st, classes c WHERE t.teach_id = '$id' AND st.class_id = c.class_id GROUP by c.class_id";
                 $result3 = mysqli_query($conn, $sql3);
 
                 if (mysqli_num_rows($result3)) {

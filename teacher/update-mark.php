@@ -8,12 +8,13 @@ $sb_id = $_GET['sb_id'];
 <main class="container">
     <h2>cập nhật điểm học sinh</h2>
     <?php
-    $sql = "SELECT * FROM students st, subjects sb, marks m WHERE st.st_id = '$st_id'and sb.sb_id = '$sb_id' and st.st_id = m.st_id";
+    $sql = "SELECT * FROM students st, subjects sb, marks m WHERE st.st_id = '$st_id'and sb.sb_id = '$sb_id' and st.st_id = m.st_id GROUP BY st.st_id";
 
 
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
+            echo  $row['sb_name'];
     ?>
             <form method="post">
                 <div class="form-group row">
@@ -47,7 +48,7 @@ $sb_id = $_GET['sb_id'];
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
-                        <button type="submit" name="btnupdate" class="btn btn-success">Thêm</button>
+                        <button type="submit" name="btnupdate" class="btn btn-success">Cập nhật</button>
                         <a href="mark.php"><button type="" name="btnupdate" class="btn btn-success">quay lại</button></a>
                     </div>
                 </div>

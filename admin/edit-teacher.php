@@ -5,7 +5,7 @@ $id = $_GET['id']
 ?>
 <main>
     <?php
-    $sql = "SELECT * FROM teachers t, subjects sb WHERE t.teach_id = $id AND t.sb_id = sb.sb_id ";
+    $sql = "SELECT * FROM teachers t, subjects sb WHERE t.teach_id = '$id' AND t.sb_id = sb.sb_id ";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
 

@@ -32,7 +32,7 @@ include 'headerad.php';
 
                                             <div class="mb-3">
                                                 <label for="subjectid" class="form-label">Mã Môn Học</label>
-                                                <input type="text" class="form-control" name="subjectid" id="subjectid" placeholder="Nhập mã môn học:Maths,Literature,....">
+                                                <input type="text" class="form-control" name="subjectid" id="subjectid" placeholder="Nhập mã môn học:SB01,SB02....">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="subjectname" class="form-label">Tên Môn Học</label>

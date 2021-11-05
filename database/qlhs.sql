@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 04, 2021 lúc 05:26 PM
--- Phiên bản máy phục vụ: 10.4.21-MariaDB
--- Phiên bản PHP: 8.0.10
+-- Host: 127.0.0.1
+-- Generation Time: Nov 05, 2021 at 12:40 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,26 +18,26 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `qlhs`
+-- Database: `qlhs`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `classes`
+-- Table structure for table `classes`
 --
 
 CREATE TABLE `classes` (
   `class_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `class_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `teacher_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
+  `teach_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `classes`
+-- Dumping data for table `classes`
 --
 
-INSERT INTO `classes` (`class_id`, `class_name`, `teacher_id`) VALUES
+INSERT INTO `classes` (`class_id`, `class_name`, `teach_id`) VALUES
 (' L01', '11A2', 'GV01'),
 (' L02', '11A4', 'GV06'),
 (' L03', '11A10', 'GV04');
@@ -45,7 +45,7 @@ INSERT INTO `classes` (`class_id`, `class_name`, `teacher_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `marks`
+-- Table structure for table `marks`
 --
 
 CREATE TABLE `marks` (
@@ -58,7 +58,7 @@ CREATE TABLE `marks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `marks`
+-- Dumping data for table `marks`
 --
 
 INSERT INTO `marks` (`st_id`, `sb_id`, `ma_mini_test`, `ma_hour_test`, `ma_final_exam`, `ma_avarage`) VALUES
@@ -111,7 +111,7 @@ INSERT INTO `marks` (`st_id`, `sb_id`, `ma_mini_test`, `ma_hour_test`, `ma_final
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `students`
+-- Table structure for table `students`
 --
 
 CREATE TABLE `students` (
@@ -127,13 +127,13 @@ CREATE TABLE `students` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `students`
+-- Dumping data for table `students`
 --
 
 INSERT INTO `students` (`st_id`, `st_name`, `st_birth`, `st_address`, `st_gender`, `st_phone`, `st_email`, `st_parent`, `class_id`) VALUES
 ('SV01', 'Nguyễn Thị Phú', '2005-11-18', 'Hà Nội', 0, '0916211456', 'nguyenvanduy@gmail.com', 'Nguyễn Văn Duy', ' L01'),
 ('SV02', 'Nguyễn Thị  Yến Nhi', '2005-11-05', 'Hà Nội', 0, '0916200456', 'nguyenvandung@gmail.com', 'Nguyễn Văn Dũng', ' L01'),
-('SV03', 'Nguyễn Văn Phong', '2005-01-07', 'Hà Nội', 1, '0916211421', 'nguyenthily@gmail.com', 'Nguyễn Thị Ly', ' L01'),
+('SV03', 'Nguyễn Văn Phong', '2005-01-07', 'Hà Nội', 0, '0916211421', 'nguyenvanphong@gmail.com', 'Nguyễn Thị Ly', ' L01'),
 ('SV04', 'Nguyễn Hồng Hà', '2005-11-16', 'Hà Nam', 1, '0916244456', 'nguyenvanduy@gmail.com', 'Nguyễn Anh Lam', ' L02'),
 ('SV05', 'Nguyễn Thị Mai Lan', '2005-01-07', 'Hà Nội', 0, ' 0923211456', 'nguyenuoc@gmail.com', 'Nguyễn Thị Ước', ' L02'),
 ('SV06', 'Nguyễn Văn Phú', '2005-12-15', 'Hà Nội', 1, ' 0916222125', 'nguyenkhuongduy@gmail.com', 'Nguyễn Khương Duy', ' L02'),
@@ -144,7 +144,7 @@ INSERT INTO `students` (`st_id`, `st_name`, `st_birth`, `st_address`, `st_gender
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `subjects`
+-- Table structure for table `subjects`
 --
 
 CREATE TABLE `subjects` (
@@ -153,7 +153,7 @@ CREATE TABLE `subjects` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `subjects`
+-- Dumping data for table `subjects`
 --
 
 INSERT INTO `subjects` (`sb_id`, `sb_name`) VALUES
@@ -166,7 +166,33 @@ INSERT INTO `subjects` (`sb_id`, `sb_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `teachers`
+-- Table structure for table `tbl_comment`
+--
+
+CREATE TABLE `tbl_comment` (
+  `comment_id` int(11) NOT NULL,
+  `parent_comment_id` int(11) DEFAULT NULL,
+  `comment` varchar(200) NOT NULL,
+  `comment_sender_name` varchar(40) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_comment`
+--
+
+INSERT INTO `tbl_comment` (`comment_id`, `parent_comment_id`, `comment`, `comment_sender_name`, `date`) VALUES
+(27, 0, '  hi kien', 'Nguyễn Thị Lý', '2021-11-05 05:34:32'),
+(28, 0, '  mình cũng hi kiên', 'Nguyễn Thị Hòa', '2021-11-05 05:35:06'),
+(29, 27, ' hi nhóm mình nhé', 'Nguyễn Thị Hòa', '2021-11-05 05:35:26'),
+(30, 0, '  hello nhóm 6 nhé\r\n', 'Nguyễn Thị Mai Lan', '2021-11-05 05:38:11'),
+(31, 0, '  ừ thì hello kien', 'Nguyễn Thị Lý', '2021-11-05 05:39:32'),
+(32, 0, '  =))\r\n', 'Nguyễn Thị Lý', '2021-11-05 05:39:41');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teachers`
 --
 
 CREATE TABLE `teachers` (
@@ -181,7 +207,7 @@ CREATE TABLE `teachers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `teachers`
+-- Dumping data for table `teachers`
 --
 
 INSERT INTO `teachers` (`teach_id`, `teach_name`, `teach_email`, `teach_phone`, `teach_address`, `teach_gender`, `teach_birth`, `sb_id`) VALUES
@@ -190,12 +216,12 @@ INSERT INTO `teachers` (`teach_id`, `teach_name`, `teach_email`, `teach_phone`, 
 ('GV03', 'Nguyễn Thị Lý', 'nguyenly@gmail.com', '0456948900', 'Lào Cai', 0, '1989-06-19', 'SB03'),
 ('GV04', 'Nguyễn Văn Hưng', 'hưngvan@gmail.com', '0789912489', 'Bắc Ninh', 1, '1974-09-16', 'SB04'),
 ('GV05', 'Trần Tuấn Đức', 'trantuanduc@gmail.com', '0986912111', 'Hà Giang', 1, '1979-01-11', 'SB05'),
-('GV06', 'Nguyễn Văn Đúng', 'Dungnguyenvan@gmail.com', '0454512480', 'Bắc Giang', 1, '1984-05-12', 'SB04');
+('GV06', 'Nguyễn Văn Đúng', 'Dungnguyenvan@gmail.com', '0454512480', 'Hà Nam', 0, '1984-05-12', 'SB01');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -203,101 +229,117 @@ CREATE TABLE `users` (
   `user_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `account` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `user_email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `user_password` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `user_password` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `user_level` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `account`, `user_email`, `user_password`, `user_level`) VALUES
-('1', 'Kiên trưởng nhóm', 'admin', '123hp@gmail.com', '123', 0),
-('GV01', 'Nguyễn Thị Hòa', 'nguyenthihoa', 'hoathi@gmail.com', '123', 1),
-('GV02', 'Lê Thị Hồng', 'lethihong', 'hongg@gmail.com', '123', 1),
-('GV03', 'Nguyễn Thị Lý', 'nguyenthily', 'nguyenly@gmail.com', '123', 1),
-('GV04', 'Nguyễn Văn Hưng', 'hungnguyenvan', 'hưngvan@gmail.com', '123', 1),
-('GV05', 'Trần Tuấn Đức', 'trantuanduc', 'trantuanduc@gmail.com', '123', 1),
-('GV06', 'Nguyễn Văn Đúng', 'dungnguyenvan', 'Dungnguyenvan@gmail.com', '123', 1),
-('SV01', 'Nguyễn Thị Phú', 'nguyenthiphu', 'nguyenvanduy@gmail.com', '123', 2),
-('SV02', 'Nguyễn Thị  Yến Nhi', 'nguyenthiyennhi', 'nguyenvandung@gmail.com', '123', 2),
-('SV03', 'Nguyễn Văn Phong', 'nguyenvanphong', 'nguyenthily@gmail.com', '123', 2),
-('SV04', 'Nguyễn Hồng Hà', 'nguyenthiha', 'nguyenvanduy@gmail.com', '123', 2),
-('SV05', 'Nguyễn Thị Mai Lan', 'nguyenthimailan', 'nguyenuoc@gmail.com', '123', 2),
-('SV06', 'Nguyễn Văn Phú', 'nguyenvanphu', 'nguyenkhuongduy@gmail.com', '123', 2),
-('SV07', 'Nguyễn Đức Kiên', 'nguyenduckien', 'nguyenvanduc@gmail.com', '123', 2),
-('SV08', 'Nguyễn Văn Dương', 'nguyenvanduong', 'nguyengiapduc@gmail.com', '123', 2),
-('SV09', 'Ngô Đức Tâm', 'ngoductam', 'nguyenlongduc@gmail.com', '123', 2);
+('1', 'Kiên trưởng nhóm', 'admin', '123hp@gmail.com', '$2y$10$keXolp5Zm/FcJQEeTy0eDuoZnSw.sZ89Xy6IoZ5LrYXbsZDe7MSEy', 0),
+('GV01', 'Nguyễn Thị Hòa', 'nguyenthihoa', 'hoathi@gmail.com', '$2y$10$mJV7PiJBt7lx4sXIgIzk7.5tLSY8rVRgi0o9cDFVSWdJ480Vq.yf2', 1),
+('GV02', 'Lê Thị Hồng', 'lethihong', 'hongg@gmail.com', '$2y$10$f6FhkXiF59fLWRFZvxvVouqaOt57cmkNPgJAJiJez3/JONm9agbAS', 1),
+('GV03', 'Nguyễn Thị Lý', 'nguyenthily', 'nguyenly@gmail.com', '$2y$10$vZsdW8rZabf8Se2bd2NpNugNtn7RjVGc5arnAPMs7UhWiro8fioaW', 1),
+('GV04', 'Nguyễn Văn Hưng', 'hungnguyenvan', 'hưngvan@gmail.com', '$2y$10$F0IlCtPT.QSc11weWgFnUerUTaY9KZw0YfT.TS584sxUytTqmnsoK', 1),
+('GV05', 'Trần Tuấn Đức', 'trantuanduc', 'trantuanduc@gmail.com', '$2y$10$yc/1Xfeklb0TnIktK8UzLexyeQwj1WvMv5ofT9a38dSuapH7PcAIq', 1),
+('GV06', 'Nguyễn Văn Đúng', 'dungnguyenvan', 'Dungnguyenvan@gmail.com', '$2y$10$rYpc1zq/WXopfZ0sYwyGterHVIC1mtqow8gkNCy4ZDVRg79vo6oMy', 1),
+('SV01', 'Nguyễn Thị Phú', 'nguyenthiphu', 'nguyenvanduy@gmail.com', '$2y$10$.wYlS5pKSVdSIKZW52onKuPPbu106RGQJgj4qjQpyguUB4vnYRCQi', 2),
+('SV02', 'Nguyễn Thị  Yến Nhi', 'nguyenthiyennhi', 'nguyenvandung@gmail.com', '$2y$10$IhrlBTxpJb0vBpQnRd0QdOYTrmIO73JfMltaen1HahxyNps543NhS', 2),
+('SV03', 'Nguyễn Văn Phong', 'nguyenvanphong', 'nguyenthily@gmail.com', '$2y$10$csgF42EtGlr17MzXucfdkuVxHKqzhDk.RWQb0Z3nzFEhp9I1vWrK.', 2),
+('SV04', 'Nguyễn Hồng Hà', 'nguyenthiha', 'nguyenvanduy@gmail.com', '$2y$10$kjGswy6epKm.p2PvCZMireoR76F9EGAlVMfFSnWHOuSDO6Q3Zzoqq', 2),
+('SV05', 'Nguyễn Thị Mai Lan', 'nguyenthimailan', 'nguyenuoc@gmail.com', '$2y$10$yYvDeke41G8aN2C7EFVrc.r8f8e2601lEDYiC.VQ4C1XPJjYZ7P.W', 2),
+('SV06', 'Nguyễn Văn Phú', 'nguyenvanphu', 'nguyenkhuongduy@gmail.com', '$2y$10$BM/jFuSr.4Oa5sZvY8lyC.6JCeQb4trfZfE1NfCBjjmoiNe4CqOeu', 2),
+('SV07', 'Nguyễn Đức Kiên', 'nguyenduckien', 'nguyenvanduc@gmail.com', '$2y$10$Ci7n37h1bv73gN6gTfKWPOAJcFpItzXj5u5EqDr0tCLkENWo4R086', 2),
+('SV08', 'Nguyễn Văn Dương', 'nguyenvanduong', 'nguyengiapduc@gmail.com', '$2y$10$b4JEctofe4cwgzOvlfzkT.evBSrQioa3LoCwhqSaNfKVbUKqehEjK', 2),
+('SV09', 'Ngô Đức Tâm', 'ngoductam', 'nguyenlongduc@gmail.com', '$2y$10$Z0JQ3YZSwQbJ1edJZ/THU.dVkTSi.rjXBd6n1JnF7WFMh6jhD93rW', 2);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `classes`
+-- Indexes for table `classes`
 --
 ALTER TABLE `classes`
   ADD PRIMARY KEY (`class_id`),
-  ADD KEY `teach_key` (`teacher_id`);
+  ADD KEY `teach_key` (`teach_id`);
 
 --
--- Chỉ mục cho bảng `marks`
+-- Indexes for table `marks`
 --
 ALTER TABLE `marks`
   ADD KEY `sb2_key` (`sb_id`),
   ADD KEY `st_key` (`st_id`);
 
 --
--- Chỉ mục cho bảng `students`
+-- Indexes for table `students`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`st_id`),
   ADD KEY `L_key` (`class_id`);
 
 --
--- Chỉ mục cho bảng `subjects`
+-- Indexes for table `subjects`
 --
 ALTER TABLE `subjects`
   ADD PRIMARY KEY (`sb_id`);
 
 --
--- Chỉ mục cho bảng `teachers`
+-- Indexes for table `tbl_comment`
+--
+ALTER TABLE `tbl_comment`
+  ADD PRIMARY KEY (`comment_id`);
+
+--
+-- Indexes for table `teachers`
 --
 ALTER TABLE `teachers`
   ADD PRIMARY KEY (`teach_id`),
   ADD KEY `sb_key` (`sb_id`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `classes`
+-- AUTO_INCREMENT for table `tbl_comment`
+--
+ALTER TABLE `tbl_comment`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `classes`
 --
 ALTER TABLE `classes`
-  ADD CONSTRAINT `teach_key` FOREIGN KEY (`teacher_id`) REFERENCES `teachers` (`teach_id`);
+  ADD CONSTRAINT `teach_key` FOREIGN KEY (`teach_id`) REFERENCES `teachers` (`teach_id`);
 
 --
--- Các ràng buộc cho bảng `marks`
+-- Constraints for table `marks`
 --
 ALTER TABLE `marks`
   ADD CONSTRAINT `sb2_key` FOREIGN KEY (`sb_id`) REFERENCES `subjects` (`sb_id`),
   ADD CONSTRAINT `st_key` FOREIGN KEY (`st_id`) REFERENCES `students` (`st_id`);
 
 --
--- Các ràng buộc cho bảng `students`
+-- Constraints for table `students`
 --
 ALTER TABLE `students`
   ADD CONSTRAINT `L_key` FOREIGN KEY (`class_id`) REFERENCES `classes` (`class_id`);
 
 --
--- Các ràng buộc cho bảng `teachers`
+-- Constraints for table `teachers`
 --
 ALTER TABLE `teachers`
   ADD CONSTRAINT `sb_key` FOREIGN KEY (`sb_id`) REFERENCES `subjects` (`sb_id`);

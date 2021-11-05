@@ -35,7 +35,7 @@ $sbid = $_GET['sbid'];
                         include '../config.php';
                         $sql = "SELECT st.st_name,sb.sb_name,m.ma_mini_test,m.ma_hour_test,m.ma_final_exam,m.ma_avarage, st.st_id, sb.sb_id
                         FROM marks m, students st, subjects sb 
-                        WHERE m.st_id=st.st_id and m.sb_id=sb.sb_id and st.st_id=$stid and sb.sb_id=$sbid";
+                        WHERE m.st_id=st.st_id and m.sb_id=sb.sb_id and st.st_id='$stid' and sb.sb_id='$sbid'";
                         $result = mysqli_query($conn, $sql);
 
                         if (mysqli_num_rows($result) > 0) {

@@ -33,12 +33,40 @@ include 'headerad.php';
                                         <div class="modal-body">
 
                                             <div class="mb-3">
-                                                <label for="studentid" class="form-label">Mã học sinh</label>
-                                                <input type="text" class="form-control" name="studentid" id="studentid" placeholder="Nhập mã học sinh:HS01,HS02,HS03....">
+                                                <label for="studentid" class="form-label">Tên học sinh</label>
+                                                <!-- <input type="text" class="form-control" name="studentid" id="studentid" placeholder="Nhập mã học sinh:HS01,HS02,HS03...."> -->
+                                                <select class="form-control" id="studentid" name="studentid">
+                                                    <?php
+                                                    include '../config.php';
+                                                    $sql = "SELECT * FROM  students";
+                                                    $result = mysqli_query($conn, $sql);
+
+                                                    if (mysqli_num_rows($result)) {
+                                                        while ($row = mysqli_fetch_assoc($result)) {
+                                                            echo '<option value="' . $row['st_id'] . '">' . $row['st_name'] . '</option>';
+                                                        }
+                                                    }
+                                                    ?>
+
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="subjectid" class="form-label">Mã môn học</label>
-                                                <input type="text" class="form-control" name="subjectid" id="subjectid" placeholder="Nhập mã môn học:Maths,Literature,....">
+                                                <!-- <input type="text" class="form-control" name="subjectid" id="subjectid" placeholder="Nhập mã môn học:Maths,Literature,...."> -->
+                                                <select class="form-control" id="subjectid" name="subjectid">
+                                                    <?php
+                                                    include '../config.php';
+                                                    $sql = "SELECT * FROM  subjects";
+                                                    $result = mysqli_query($conn, $sql);
+
+                                                    if (mysqli_num_rows($result)) {
+                                                        while ($row = mysqli_fetch_assoc($result)) {
+                                                            echo '<option value="' . $row['sb_id'] . '">' . $row['sb_name'] . '</option>';
+                                                        }
+                                                    }
+                                                    ?>
+
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="min-test" class="form-label">Điểm 15 phút</label>

@@ -47,7 +47,7 @@ $client_user = $_SESSION['current_user'];
                                 <h3 class="text-center"> Nhập đầy đủ thông tin để đổi mật khẩu</h3>
                                 <form method="POST">
                                     <div class="form-outline mb-4">
-                                        <input type="hidden" id="userid" class="form-control form-control-lg" name="userid" value="<?php echo $client_user['user_id']?>">
+                                        <input type="hidden" id="userid" class="form-control form-control-lg" name="userid" value="<?php echo $client_user['user_id'] ?>">
                                         <input type="password" id="oldpass" class="form-control form-control-lg" name="oldpass">
                                         <label class="form-label">Mật khẩu cũ</label>
                                     </div>
@@ -84,34 +84,40 @@ if (isset($_POST['btnchange'])) {
     $userid = $_POST['userid'];
     $oldpass = $_POST['oldpass'];
     $newpass = $_POST['newpass'];
-    // $pass_hash = password_hash($oldpass, PASSWORD_DEFAULT);
+    $pass_hash = password_hash($oldpass, PASSWORD_DEFAULT);
     $pass_hash2 = password_hash($newpass, PASSWORD_DEFAULT);
 
-    if ($oldpass == '' && $newpass == '') {
+    if ($oldpass == '' || $newpass == '') {
 ?>
         <script>
             alert('Nhập đủ thông tin');
         </script>
         <?php
     } else {
-            $sql =  "UPDATE `users` SET `user_password`='$pass_hash2' WHERE `user_id` = '$userid' ";
-            $result = mysqli_query($conn,$sql);
-            if ($result > 0) {
+        $sql2 = "SELECT * FROM users WHERE user_id ='$userid'  ";
+        $resultcheck = mysqli_query($conn, $sql2);
+        if (mysqli_num_rows($resultcheck) > 0) {
+            $row = mysqli_fetch_assoc($resultcheck);
+            $pass_hashed = $row['user_password'];
+            if (password_verify($oldpass, $pass_hashed)) {
+                $sql =  "UPDATE `users` SET `user_password`='$pass_hash2' WHERE `user_id` = '$userid' ";
+                $result = mysqli_query($conn, $sql);
                 ?>
                 <script>
-                   window.location.href = 'index.php';
+                    window.location.href = 'index.php';
                 </script>
-        <?php
+                <?php
             } else {
-        ?>
+                ?>
                 <script>
-                    alert('Không thể đổi mật khẩu');
+                    alert('Sai mật khẩu cũ');
                 </script>
 <?php
             }
+            mysqli_close($conn);
         }
-        mysqli_close($conn);
     }
+}
 
 
 ?>

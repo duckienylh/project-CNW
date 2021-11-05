@@ -39,11 +39,11 @@ include 'headerad.php';
                                             </div>
                                             <div class="mb-3">
                                                 <label for="teachid" class="form-label">Mã Giáo Viên</label>
-                                                <input type="text" class="form-control" name="teachid" id="teachid" placeholder="Nhập mã môn học:Maths,Literature,...." require>
+                                                <input type="text" class="form-control" name="teachid" id="teachid" placeholder="Nhập mã giáo viên:GV01,GV02,...." require>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="teachname" class="form-label">Tên Giáo Viên</label>
-                                                <input type="text" class="form-control" name="teachname" id="teachname" placeholder="Nhập tên môn học:Toán,Văn,...." require>
+                                                <input type="text" class="form-control" name="teachname" id="teachname" placeholder="Nhập tên giáo viên" require>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="teachemail" class="form-label">Email</label>
@@ -87,12 +87,13 @@ include 'headerad.php';
                                                 </select>
                                             </div>
                                         </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                            <button type="submit" class="btn btn-primary" name="btnSave">Thêm</button>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                    <button type="submit" class="btn btn-primary" name="btnSave">Thêm</button>
-                                </div>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -168,8 +169,8 @@ if (isset($_POST['btnSave'])) {
     $sql2 = "INSERT INTO `teachers`(`teach_id`, `teach_name`, `teach_email`, `teach_phone`, `teach_address`, `teach_gender`, `teach_birth`, `sb_id`)
     VALUES ('$teachid','$teachname','$teachemail','$teachphone','$teachaddress','$teachgender','$teachbirth','$subjid')";
 
-    $sql3 = "INSERT INTO `users`(`user_id`, `user_name`, `user_email`, `user_password`, `user_level`) 
-    VALUES ('$teachid','$username','$teachemail','$pass_hash','1')";
+    $sql3 = "INSERT INTO `users`(`user_id`,`account`, `user_name`, `user_email`, `user_password`, `user_level`) 
+    VALUES ('$teachid','$username','$teachname','$teachemail','$pass_hash','1')";
 
 
     $result2 = mysqli_query($conn, $sql3);
