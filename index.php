@@ -100,7 +100,7 @@
                 if (response.status == 0) { // đăng nhập thất bại
                     alert(response.message);
                 } else { // đăng nhập thành công
-                    alert(response.message);
+                    // alert(response.message);
                     // if(response.level == 0){// phân quyền đăng nhập
                     //     window.location.href = 'admin/dashboard.php';
                         
